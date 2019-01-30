@@ -2,5 +2,10 @@ deploy:s3:
   image: "garland/aws-cli-docker:latest"
   stage: deploy
   script:
-    - echo $CI_COMMIT_REF_NAME > all.css
+    - aws s3 cp ./ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT
+
+deploy:s3:
+  image: "garland/aws-cli-docker:latest"
+  stage: deploy
+  script:
     - aws s3 cp ./ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT

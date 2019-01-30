@@ -4,6 +4,7 @@
   "description": "Ready to use font icons for your next project",
   "main": "generate-css.js",
   "scripts": {
+    "build": "npm run generate-fontello-config && npm run generate",
     "download": "node build/download.js",
     "generate": "fontello-cli install",
     "generate-fontello-config": "node build/generate-fontello-config.js"
