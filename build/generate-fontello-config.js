@@ -99,6 +99,9 @@ glob(sourcePath, function (err, files) {
         failedFiles.push(name)
         // console.error(name)
       }
+    }).catch(e => {
+      console.error(e, filename)
+      throw e
     })
 
     promises.push(promise)
