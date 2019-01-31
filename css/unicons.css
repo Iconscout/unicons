@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'unicons';
-  src: url('../font/unicons.eot?18300658');
-  src: url('../font/unicons.eot?18300658#iefix') format('embedded-opentype'),
-       url('../font/unicons.woff2?18300658') format('woff2'),
-       url('../font/unicons.woff?18300658') format('woff'),
-       url('../font/unicons.ttf?18300658') format('truetype'),
-       url('../font/unicons.svg?18300658#unicons') format('svg');
+  src: url('../font/unicons.eot?70975408');
+  src: url('../font/unicons.eot?70975408#iefix') format('embedded-opentype'),
+       url('../font/unicons.woff2?70975408') format('woff2'),
+       url('../font/unicons.woff?70975408') format('woff'),
+       url('../font/unicons.ttf?70975408') format('truetype'),
+       url('../font/unicons.svg?70975408#unicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'unicons';
-    src: url('../font/unicons.svg?18300658#unicons') format('svg');
+    src: url('../font/unicons.svg?70975408#unicons') format('svg');
   }
 }
 */
