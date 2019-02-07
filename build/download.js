@@ -4,8 +4,12 @@ const axios = require('axios')
 const targetPath = path.join(process.cwd(), 'icons.json')
 const targetImagePath = path.join(process.cwd(), 'svg')
 const eachLimit = require('async/eachLimit')
+const uniq = require('lodash/uniq')
+const filter = require('lodash/filter')
+const countDuplicates = require('./countDuplicates')
 
 const url = process.env.API_DOWNLOAD
+const breakOnError = true
 
 console.log(`Download SVGs in ${process.cwd()}`)
 
@@ -44,29 +48,62 @@ async function downloadImage(url, path) {
 }
 
 const response = axios
-  .get(
-    url
-  )
+  .get(url)
   .then(response => {
     const data = []
+    const icons = response.data.response.unicons.map(item => ({
+      ...item,
+      allTags: item.name,
+      name: item.tags[item.tags.length - 1],
+    }))
+
+    const names = icons.map(icon => icon.name)
+    const uniqueNames = uniq(names)
+    const repeated = countDuplicates(names)
+    const duplicates = filter(repeated, (item) => item.count > 1)
+
+    if (duplicates.length && breakOnError) {
+      console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
+      
+      console.log(`Duplicates:`, duplicates)
+  
+      let dupFiles = []
+      duplicates.forEach(d => {
+        dupFiles = [
+          ...dupFiles,
+          ...filter(icons, { name: d.value })
+        ]
+      })
+  
+      fs.writeFileSync('duplicates.json', JSON.stringify(dupFiles), 'utf-8')
+
+      throw new Error('There are duplicate files')
+    }
 
     // Download All the icons from Iconscout
-    eachLimit(response.data.response.unicons, 20, async (row) => {
+    eachLimit(icons, 20, async (row) => {
       const url = row.svg
       // const ext = url.indexOf('.gif') === -1 ? 'jpg' : 'gif'
-      const name = row.tags[row.tags.length - 1]
+      const name = row.name
       const fileName = `${name}.svg`
       const filePath = path.resolve(targetImagePath, fileName)
 
-      data.push({
-        id: row.id,
-        name: name,
-        svg: `svg/${fileName}`,
-        category: row.category,
-        style: row.style,
-        tags: row.tags
-      })
-      return downloadImage(url, filePath)
+      
+      try {
+        await downloadImage(url, filePath)
+
+        data.push({
+          id: row.id,
+          name: name,
+          svg: `svg/${fileName}`,
+          category: row.category,
+          style: row.style,
+          tags: row.tags
+        })
+      } catch (error) {
+        console.error(error)
+        console.log('Error Downloading:', name)
+      }
     }, (err, results) => {
       if (err) {
         console.log(results)
