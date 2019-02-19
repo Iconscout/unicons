@@ -8,22 +8,6 @@
   display: inline-block;
 }
 
-.animate.spin-slow {
-  -moz-animation: spin 4s infinite linear;
-  -o-animation: spin 4s infinite linear;
-  -webkit-animation: spin 4s infinite linear;
-  animation: spin 4s infinite linear;
-  display: inline-block;
-}
-
-.animate.spin-fast {
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  -webkit-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-  display: inline-block;
-}
-
 
 @keyframes spin {
   0% {
@@ -42,6 +26,22 @@
 }
 
 @-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -470,22 +470,6 @@
   }
 }
 
-@-o-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-
 @-webkit-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
@@ -527,22 +511,6 @@
   -o-animation: pulse 2s infinite linear;
   -webkit-animation: pulse 2s infinite linear;
   animation: pulse 2s infinite linear;
-  display: inline-block;
-}
-
-.animate.pulse-slow {
-  -moz-animation: pulse 4s infinite linear;
-  -o-animation: pulse 4s infinite linear;
-  -webkit-animation: pulse 4s infinite linear;
-  animation: pulse 4s infinite linear;
-  display: inline-block;
-}
-
-.animate.pulse-fast {
-  -moz-animation: pulse 1s infinite linear;
-  -o-animation: pulse 1s infinite linear;
-  -webkit-animation: pulse 1s infinite linear;
-  animation: pulse 1s infinite linear;
   display: inline-block;
 }
 
@@ -601,22 +569,6 @@
   -o-animation: vibrate 0.1s infinite linear;
   -webkit-animation: vibrate 0.1s infinite linear;
   animation: vibrate 0.1s infinite linear;
-  display: inline-block;
-}
-
-.animate.vibrate-slow {
-  -moz-animation: vibrate 0.2s infinite linear;
-  -o-animation: vibrate 0.2s infinite linear;
-  -webkit-animation: vibrate 0.2s infinite linear;
-  animation: vibrate 0.2s infinite linear;
-  display: inline-block;
-}
-
-.animate.vibrate-fast {
-  -moz-animation: vibrate 0.07s infinite linear;
-  -o-animation: vibrate 0.07s infinite linear;
-  -webkit-animation: vibrate 0.07s infinite linear;
-  animation: vibrate 0.07s infinite linear;
   display: inline-block;
 }
 
@@ -706,26 +658,10 @@
 /* Blink Smooth Animation Start */
 
 .animate.blink-smooth {
-  -moz-animation: blink-s 0.8s infinite linear;
-  -o-animation: blink-s 0.8s infinite linear;
-  -webkit-animation: blink-s 0.8s infinite linear;
-  animation: blink-s 0.8s infinite linear;
-  display: inline-block;
-}
-
-.animate.blink-smooth-slow {
-  -moz-animation: blink-s 1.2s infinite linear;
-  -o-animation: blink-s 1.2s infinite linear;
-  -webkit-animation: blink-s 1.2s infinite linear;
-  animation: blink-s 1.2s infinite linear;
-  display: inline-block;
-}
-
-.animate.blink-smooth-fast {
-  -moz-animation: blink-s 0.4s infinite linear;
-  -o-animation: blink-s 0.4s infinite linear;
-  -webkit-animation: blink-s 0.4s infinite linear;
-  animation: blink-s 0.4s infinite linear;
+  -moz-animation: blink-s 1s infinite linear;
+  -o-animation: blink-s 1s infinite linear;
+  -webkit-animation: blink-s 1s infinite linear;
+  animation: blink-s 1s infinite linear;
   display: inline-block;
 }
 
@@ -770,26 +706,10 @@
 /* Blink Animation Start */
 
 .animate.blink {
-  -moz-animation: blink 0.8s infinite linear;
-  -o-animation: blink 0.8s infinite linear;
-  -webkit-animation: blink 0.8s infinite linear;
-  animation: blink 0.8s infinite linear;
-  display: inline-block;
-}
-
-.animate.blink-slow {
-  -moz-animation: blink 1.2s infinite linear;
-  -o-animation: blink 1.2s infinite linear;
-  -webkit-animation: blink 1.2s infinite linear;
-  animation: blink 1.2s infinite linear;
-  display: inline-block;
-}
-
-.animate.blink-fast {
-  -moz-animation: blink 0.4s infinite linear;
-  -o-animation: blink 0.4s infinite linear;
-  -webkit-animation: blink 0.4s infinite linear;
-  animation: blink 0.4s infinite linear;
+  -moz-animation: blink 1s infinite linear;
+  -o-animation: blink 1s infinite linear;
+  -webkit-animation: blink 1s infinite linear;
+  animation: blink 1s infinite linear;
   display: inline-block;
 }
 
