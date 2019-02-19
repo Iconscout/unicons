@@ -11,11 +11,11 @@ It's easy to use Unicons on your website by just inserting following css. You ca
 ```html
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v0.0.2/css/unicons.css">
 ```
+
 And use the icons in your `body` as below.
 ```html
 <i class='uil uil-comments'></i>
 ```
-
 
 ### Using as an SVG
 If you're a designer then it's always great to have SVG files. You can download SVGs from [Official Unicons Website](https://iconscout.com/unicons) or [download Icondrop](https://iconscout.com/icondrop) to access these icons right into Sketch, Adobe Xd, Adobe Illustrator, and many more.
