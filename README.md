@@ -11,9 +11,6 @@ It's easy to use Unicons on your website by just inserting following css. You ca
 ```html
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v0.0.2/css/unicons.css">
 ```
-### Adding Animation
-Unicon contains several CSS Animation  
-
 And use the icons in your `body` as below.
 ```html
 <i class='uil uil-comments'></i>
