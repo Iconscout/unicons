@@ -1,6 +1,6 @@
 {
   "name": "unicons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "build": "npm run download && npm run generate-fontello-config && npm run generate",
@@ -20,12 +20,12 @@
     "icons",
     "webfont"
   ],
-  "author": "Tarun Mangukiya <tarunmangukiya@hotmail.com> (https://github.com/tarunmangukiya)",
-  "license": "ISC",
+  "author": "Iconscout",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Iconscout/unicons/issues"
   },
-  "homepage": "https://github.com/Iconscout/unicons#readme",
+  "homepage": "https://iconscout.com/unicons",
   "devDependencies": {},
   "dependencies": {
     "async": "^2.6.1",
