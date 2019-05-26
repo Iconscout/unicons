@@ -54,6 +54,37 @@
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
+/* Flipping Icons */
+[class*=" uil-"].flip-horizontal:before,
+[class*=" uil-"].flip-h:before,
+[class*=" uil-"].flip-x:before {
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+[class*=" uil-"].flip-vertical:before,
+[class*=" uil-"].flip-v:before,
+[class*=" uil-"].flip-y:before {
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+[class*=" uil-"].flip-vertical.flip-horizontal:before,
+[class*=" uil-"].flip-vertical.flip-h:before,
+[class*=" uil-"].flip-vertical.flip-x:before,
+[class*=" uil-"].flip-v.flip-horizontal:before,
+[class*=" uil-"].flip-v.flip-h:before,
+[class*=" uil-"].flip-v.flip-x:before,
+[class*=" uil-"].flip-y.flip-horizontal:before,
+[class*=" uil-"].flip-y.flip-h:before,
+[class*=" uil-"].flip-y.flip-x:before {
+  -webkit-transform: scale(-1);
+      -ms-transform: scale(-1);
+          transform: scale(-1);
+}
  
 .uil-0-plus:before { content: '\e800'; } /* '' */
 .uil-10-plus:before { content: '\e801'; } /* '' */
