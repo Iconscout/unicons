@@ -14,6 +14,10 @@ glob(sourcePath, function (err, files) {
   fs.removeSync(destPath + '/css')
   fs.removeSync(destPath + '/index.html')
 
+  // Remove Custom Files
+  // i.e. Animations
+  fs.removeSync(fontFolder + '/css/animation.css')
+
   // Move Font Files
   fs.rename(fontFolder + '/font', destPath + '/font', (err) => {
     if (err) throw err
