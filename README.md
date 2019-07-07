@@ -5,16 +5,21 @@
 ## Getting Started
 
 ### Using as a font
-
 It's easy to use Unicons on your website by just inserting following css. You can also download this repo and use the css from `css` folder.
 
 ```html
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v0.0.2/css/unicons.css">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v1.0.0/css/unicons.css">
 ```
 
 And use the icons in your `body` as below.
 ```html
-<i class='uil uil-comments'></i>
+<i class="uil uil-comments"></i>
+```
+
+### Using as npm package
+You can easily install [Unicons](https://iconscout.com/unicons) using npm.
+```bash
+npm install --save @iconscout/unicons
 ```
 
 ### Using as an SVG
