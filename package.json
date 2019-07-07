@@ -1,6 +1,6 @@
 {
   "name": "@iconscout/unicons",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "build": "npm run download && npm run generate-fontello-config && npm run generate",
@@ -29,7 +29,7 @@
   "devDependencies": {},
   "dependencies": {
     "async": "^2.6.1",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.2",
     "fontello-cli": "^0.4.0",
     "fs-plus": "^3.1.1",
