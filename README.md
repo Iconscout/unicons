@@ -44,3 +44,6 @@ We've created a thread at [Iconscout Community](https://discuss.iconscout.com/ne
 
 ## License
 Unicons are Open Source icons and licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). You're free to use these icons in your personal and commercial project. We would love to see the attribution in your app's **about** screen, but it's not mandatory.
+```html
+Unicons by <a href="https://iconscout.com/">Iconscout</a>
+```
