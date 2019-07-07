@@ -1,6 +1,6 @@
 {
   "name": "@iconscout/unicons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "build": "npm run download && npm run generate-fontello-config && npm run generate",
