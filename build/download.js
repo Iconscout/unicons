@@ -28,23 +28,12 @@ async function downloadImage(url, path) {
   const response = await axios({
     method: 'GET',
     url: url,
-    responseType: 'stream',
     headers: requestHeaders
   })
 
-  // pipe the result stream into a file on disc
-  response.data.pipe(fs.createWriteStream(path))
-
-  // return a promise and resolve when download finishes
-  return new Promise((resolve, reject) => {
-    response.data.on('end', () => {
-      resolve(url)
-    })
-
-    response.data.on('error', () => {
-      reject(url)
-    })
-  })
+  // Replace extra characters such as new lines, tabs from file
+  const svg = response.data.replace(/\r+|\n+|\t+/gm, '')
+  fs.writeFileSync(path, svg, 'utf-8')
 }
 
 const response = axios
@@ -88,7 +77,6 @@ const response = axios
       const fileName = `${name}.svg`
       const filePath = path.resolve(targetImagePath, fileName)
 
-      
       try {
         await downloadImage(url, filePath)
 

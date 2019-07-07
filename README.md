@@ -29,11 +29,11 @@ If you're a designer then it's always great to have SVG files. You can download 
 - [Vue-unicons](https://github.com/antonreshetov/vue-unicons) by [Anton Reshetov](https://github.com/antonreshetov)
 
 ## Roadmap
+- [ ] Make React Components
 - [ ] Adding Brand Icons
 - [ ] Designing Solid Style
 - [ ] Designing Thin-line Style
 - [ ] Support for CSS Animations
-- [ ] Make React Components
 - [ ] Make SVG Sprite in which user can control different attributes such as stroke, fill, width, height and more.
 
 ## Contributing
