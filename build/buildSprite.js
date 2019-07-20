@@ -1,29 +1,23 @@
-var svgstore = require('svgstore')
-  , fs = require('fs')
-  , glob = require('glob')
-  , path = require('path')
-  , sprites = svgstore()
-  , writtenFiles = 0
-  , svgFiles = path.join(process.cwd()) + '/svg/*svg'
-  ;
+const svgstore = require('svgstore')
+const fs = require('fs')
+const glob = require('glob')
+const path = require('path')
+const sprites = svgstore()
+const svgFiles = path.join(process.cwd(), '/svg/*svg')
 
-console.log(path.join(process.cwd()));
+let writtenFiles = 0
 
 glob(svgFiles, {}, function (er, files) {
   files.forEach(function (file) {
+    const filename = path.basename(file).replace('.svg', '')
+    sprites.add(filename, fs.readFileSync(file, 'utf8'))
 
-    var filename = path.basename(file).replace('.svg', '');
+    writtenFiles += 1
+  })
 
-    writtenFiles += 1;
+  fs.writeFile(path.join(process.cwd(), '/sprite/unicons.svg'), sprites, (err) => {
+    if (err) console.log(err)
+  })
 
-    sprites.add(filename, fs.readFileSync(file, 'utf8'));
-  });
-
-  fs.writeFile(path.join(process.cwd()) + '/sprite/unicons.svg', sprites, (err) => {
-    if (err) console.log(err);
-  });
-
-  console.log('Wrote Sprite For ' + writtenFiles + ' Files');
-});
-
-// node build/buildSprite.js
+  console.log(`Wrote Sprite for ${writtenFiles} files`)
+})
