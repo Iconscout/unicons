@@ -6,4 +6,4 @@ node_modules
 # Fontello Build Files
 fontello-*
 config.json
-duplicates.json
+*-duplicates.json

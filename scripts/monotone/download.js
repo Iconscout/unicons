@@ -1,16 +1,17 @@
 const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
-const targetPath = path.join(process.cwd(), 'json/line.json')
-const targetImagePath = path.join(process.cwd(), 'svg/line')
+const targetPath = path.join(process.cwd(), 'json/monotone.json')
+const targetImagePath = path.join(process.cwd(), 'svg/monotone')
 const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
+const replaceFill = require('./replaceFill')
 
-const url = process.env.API_DOWNLOAD
-const breakOnError = true
+const url = process.env.API_DOWNLOAD + '?bundle_id=3135'
+const breakOnError = false
 
 console.log(`Download SVGs in ${process.cwd()}`)
 
@@ -36,7 +37,7 @@ const response = axios
     if (duplicates.length && breakOnError) {
       console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
       
-      console.log(`Line Duplicates:`, duplicates)
+      console.log(`Monotone Duplicates:`, duplicates)
   
       let dupFiles = []
       duplicates.forEach(d => {
@@ -46,7 +47,7 @@ const response = axios
         ]
       })
   
-      fs.writeFileSync('line-duplicates.json', JSON.stringify(dupFiles), 'utf-8')
+      fs.writeFileSync('monotone-duplicates.json', JSON.stringify(dupFiles), 'utf-8')
 
       throw new Error('There are duplicate files')
     }
@@ -60,14 +61,16 @@ const response = axios
       const filePath = path.resolve(targetImagePath, fileName)
 
       try {
-        await downloadImage(url, filePath)
+        await downloadImage(url, filePath, (svg) => {
+          return replaceFill(svg, fileName)
+        })
 
         data.push({
           id: row.id,
           name: name,
-          svg: `svg/line/${fileName}`,
+          svg: `svg/monotone/${fileName}`,
           category: row.category,
-          style: 'Line',
+          style: 'Monotone',
           tags: row.tags
         })
       } catch (error) {

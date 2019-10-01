@@ -6,7 +6,8 @@
     "line:build": "npm run download && npm run generate-fontello-config && npm run generate",
     "line:download": "node scripts/line/download.js",
     "line:generate": "fontello-cli install && node scripts/line/folder-move.js && node scripts/line/buildSprite.js",
-    "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js"
+    "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
+    "monotone:download": "node scripts/monotone/download.js"
   },
   "repository": {
     "type": "git",

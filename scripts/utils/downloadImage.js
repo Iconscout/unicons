@@ -1,7 +1,7 @@
 const fs = require('fs')
 const axios = require('axios')
 
-const downloadImage = async (url, path) => {
+const downloadImage = async (url, path, parseSVG) => {
   console.log(`Downloading Image: ${url}`)
   // axios image download with response type "stream"
   const response = await axios({
@@ -10,7 +10,13 @@ const downloadImage = async (url, path) => {
   })
 
   // Replace extra characters such as new lines, tabs from file
-  const svg = response.data.replace(/\r+|\n+|\t+/gm, '')
+  let svg = response.data.replace(/\r+|\n+|\t+/gm, '')
+
+  // If we've to modify svg before saving
+  if (parseSVG) {
+    svg = parseSVG(svg)
+  }
+
   fs.writeFileSync(path, svg, 'utf-8')
 }
 
