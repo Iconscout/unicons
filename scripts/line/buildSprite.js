@@ -3,7 +3,7 @@ const fs = require('fs')
 const glob = require('glob')
 const path = require('path')
 const sprites = svgstore()
-const svgFiles = path.join(process.cwd(), '/svg/*svg')
+const svgFiles = path.join(process.cwd(), '/svg/line/*svg')
 
 let writtenFiles = 0
 
@@ -15,7 +15,7 @@ glob(svgFiles, {}, function (er, files) {
     writtenFiles += 1
   })
 
-  fs.writeFile(path.join(process.cwd(), '/sprite/unicons.svg'), sprites, (err) => {
+  fs.writeFile(path.join(process.cwd(), '/sprite/line/unicons.svg'), sprites, (err) => {
     if (err) console.log(err)
   })
 

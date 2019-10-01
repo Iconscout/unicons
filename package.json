@@ -1,12 +1,12 @@
 {
   "name": "@iconscout/unicons",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
-    "build": "npm run download && npm run generate-fontello-config && npm run generate",
-    "download": "node scripts/line/download.js",
-    "generate": "fontello-cli install && node scripts/line/folder-move.js && node scripts/line/buildSprite.js",
-    "generate-fontello-config": "node scripts/line/generate-fontello-config.js"
+    "line:build": "npm run download && npm run generate-fontello-config && npm run generate",
+    "line:download": "node scripts/line/download.js",
+    "line:generate": "fontello-cli install && node scripts/line/folder-move.js && node scripts/line/buildSprite.js",
+    "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js"
   },
   "repository": {
     "type": "git",
