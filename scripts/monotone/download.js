@@ -11,7 +11,7 @@ const downloadImage = require('../utils/downloadImage')
 const replaceFill = require('./replaceFill')
 
 const url = process.env.API_DOWNLOAD + '?bundle_id=3135'
-const breakOnError = false
+const breakOnError = true
 
 console.log(`Download SVGs in ${process.cwd()}`)
 

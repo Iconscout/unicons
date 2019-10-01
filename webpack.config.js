@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry: [
       'regenerator-runtime/runtime',
       './scripts/monotone/script.js'
