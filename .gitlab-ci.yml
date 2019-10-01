@@ -3,7 +3,7 @@ deploy:s3:
   stage: deploy
   script:
     - aws s3 cp ./ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT
-    - aws s3 cp ./icons.json s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/icons.json --content-type application/json --endpoint-url $AWS_ENDPOINT
+    - aws s3 cp ./json/ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/json/ --content-type application/json --endpoint-url $AWS_ENDPOINT
   environment:
     name: production/$CI_COMMIT_REF_NAME
     url: https://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/index.html
