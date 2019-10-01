@@ -12,7 +12,7 @@ const serialize = require('serialize-svg-path')
 const svgoConfig = require('./svgoConfig')
 const svgo = new Svgo(svgoConfig)
 
-const sourcePath = path.join(process.cwd(), 'svg', '**/*.svg')
+const sourcePath = path.join(process.cwd(), 'svg/line', '**/*.svg')
 const targetFilePath = path.join(process.cwd(), 'config.json')
 
 let startCharCode = 59392

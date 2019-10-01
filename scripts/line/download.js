@@ -1,12 +1,13 @@
 const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
-const targetPath = path.join(process.cwd(), 'icons.json')
-const targetImagePath = path.join(process.cwd(), 'svg')
+const targetPath = path.join(process.cwd(), 'json/line.json')
+const targetImagePath = path.join(process.cwd(), 'svg/line')
 const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
-const countDuplicates = require('./countDuplicates')
+const countDuplicates = require('../utils/countDuplicates')
+const downloadImage = require('../utils/downloadImage')
 
 const url = process.env.API_DOWNLOAD
 const breakOnError = true
@@ -16,25 +17,6 @@ console.log(`Download SVGs in ${process.cwd()}`)
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Accept'] = 'application/json'
 axios.defaults.withCredentials = true
-
-const requestHeaders = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/vnd.api.v2+json'
-}
-
-async function downloadImage(url, path) {
-  console.log(`Downloading Image: ${url}`)
-  // axios image download with response type "stream"
-  const response = await axios({
-    method: 'GET',
-    url: url,
-    headers: requestHeaders
-  })
-
-  // Replace extra characters such as new lines, tabs from file
-  const svg = response.data.replace(/\r+|\n+|\t+/gm, '')
-  fs.writeFileSync(path, svg, 'utf-8')
-}
 
 const response = axios
   .get(url)

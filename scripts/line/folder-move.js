@@ -9,17 +9,17 @@ glob(sourcePath, function (err, files) {
   const fontFolder = files[0]
   console.log(fontFolder, destPath)
 
+  // Keep Custom Files
+  // i.e. Animations
+  fs.renameSync(destPath + '/css/animation.css', fontFolder + '/css/animation.css', (err) => {
+    if (err) throw err
+    console.log('Animation.css moved!')
+  })
+
   // Clear Directories
   fs.removeSync(destPath + '/font')
   fs.removeSync(destPath + '/css')
   fs.removeSync(destPath + '/index.html')
-
-  // Keep Custom Files
-  // i.e. Animations
-  fs.rename(fontFolder + '/css/animation.css', destPath + '/css/animation.css', (err) => {
-    if (err) throw err
-    console.log('Animation.css moved!')
-  })
 
   // Move Font Files
   fs.rename(fontFolder + '/font', destPath + '/font', (err) => {

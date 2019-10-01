@@ -4,9 +4,9 @@
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "build": "npm run download && npm run generate-fontello-config && npm run generate",
-    "download": "node build/download.js",
-    "generate": "fontello-cli install && node build/folder-move.js && node build/buildSprite.js",
-    "generate-fontello-config": "node build/generate-fontello-config.js"
+    "download": "node scripts/line/download.js",
+    "generate": "fontello-cli install && node scripts/line/folder-move.js && node scripts/line/buildSprite.js",
+    "generate-fontello-config": "node scripts/line/generate-fontello-config.js"
   },
   "repository": {
     "type": "git",
