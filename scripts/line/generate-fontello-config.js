@@ -15,6 +15,7 @@ const svgo = new Svgo(svgoConfig)
 const sourcePath = path.join(process.cwd(), 'svg/line', '**/*.svg')
 const targetFileDir = path.join(process.cwd(), 'dist/config')
 
+fs.removeSync(targetFileDir)
 fs.mkdirSync(targetFileDir)
 
 let startCharCode = 59392
@@ -30,9 +31,10 @@ const baseConfig = {
   "glyphs": []
 }
 
-const saveConfig = (glyphs, file) => {
+const saveConfig = (glyphs, name, file) => {
   const config = {
     ...baseConfig,
+    name,
     glyphs
   }
 
@@ -118,7 +120,7 @@ glob(sourcePath, function (err, files) {
         throw new Error('Some icons are not in compound path')
       } else {
         const file = path.join(targetFileDir, `config${chunkIndex}.json`)
-        saveConfig(configIcons, file)
+        saveConfig(configIcons, `unicons-${chunkIndex}`, file)
         console.log(`Fontello config generated to ${file}`)
       }
     })
