@@ -120,6 +120,7 @@ glob(sourcePath, function (err, files) {
         throw new Error('Some icons are not in compound path')
       } else {
         const file = path.join(targetFileDir, `config${chunkIndex}.json`)
+        // Save Fontello Config
         saveConfig(configIcons, `unicons-${chunkIndex}`, file)
         console.log(`Fontello config generated to ${file}`)
       }
