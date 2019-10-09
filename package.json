@@ -3,10 +3,11 @@
   "version": "2.0.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
-    "line:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate",
+    "line:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
     "line:download": "node scripts/line/download.js",
-    "line:generate": "fontello-cli install && node scripts/line/folder-move.js && node scripts/line/buildSprite.js",
+    "line:generate": "node scripts/line/generate-fonts.js",
     "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
+    "line:build-sprite": "node scripts/line/buildSprite.js",
     "monotone:build": "npm run monotone:download && npm run monotone:build-script",
     "monotone:build-script": "webpack",
     "monotone:download": "node scripts/monotone/download.js"
