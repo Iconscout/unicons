@@ -1,9 +1,15 @@
 const SVG_URL_BASE =
   "https://unicons.iconscout.com/release/feature-unicons-monotone/svg/monotone/";
 
+const iconPrefix = 'uim-'
+
+// Add Unicons Window
+window.Unicons = window.Unicons || {}
+window.Unicons.DEBUG = window.Unicons.DEBUG || false
+
 const replaceWithSVG = (name, svg) => {
   // Replace it with SVG
-  const elements = document.getElementsByClassName(`ui-${name}`);
+  const elements = document.getElementsByClassName(`${iconPrefix}${name}`);
 
   while (elements.length > 0) {
     const element = elements[0];
@@ -32,14 +38,19 @@ const fetchIconsAndReplace = icons => {
   });
 };
 
-window.onload = () => {
+const replaceIcons = () => {
   const elements = document.getElementsByClassName("uim");
   const iconsToFetch = [];
+
+  if (window.Unicons.DEBUG) {
+    console.log(`Replacing ${elements.length} icons`)
+  }
+
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
     element.classList.forEach(className => {
-      if (className.indexOf("ui-") > -1) {
-        const iconName = className.toLocaleLowerCase().replace("ui-", "");
+      if (className.indexOf(iconPrefix) > -1) {
+        const iconName = className.toLocaleLowerCase().replace(iconPrefix, "");
         if (iconsToFetch.indexOf(iconName) === -1) {
           iconsToFetch.push(iconName);
         }
@@ -50,12 +61,15 @@ window.onload = () => {
   fetchIconsAndReplace(iconsToFetch);
 };
 
+window.onload = replaceIcons
+window.Unicons.refresh = replaceIcons
+
 // Append CSS
 const style = document.createElement("style");
 style.innerHTML = `:root {
   --uim-primary-opacity: 1;
-  --uim-secondary-opacity: 0.6;
-  --uim-tertiary-opacity: 0.2;
+  --uim-secondary-opacity: 0.50;
+  --uim-tertiary-opacity: 0.25;
 }
 .uim-svg {
   display: inline-block;
