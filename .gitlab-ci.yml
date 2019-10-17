@@ -9,6 +9,7 @@ build:
     - npm ci --progress=false
     - npm run line:build
     - npm run monochrome:build
+    - rm -rf node_modules dist
   artifacts:
     expire_in: 1 week
     paths:
