@@ -15,7 +15,8 @@ const svgo = new Svgo(svgoConfig)
 const sourcePath = path.join(process.cwd(), 'svg/line', '**/*.svg')
 const targetFileDir = path.join(process.cwd(), 'dist/config')
 
-fs.removeSync(targetFileDir)
+fs.removeSync(path.join(process.cwd(), 'dist'))
+fs.mkdirSync(path.join(process.cwd(), 'dist'))
 fs.mkdirSync(targetFileDir)
 
 let startCharCode = 59392
