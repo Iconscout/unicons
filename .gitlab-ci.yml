@@ -1,9 +1,30 @@
-deploy:s3:
+stages:
+  - build
+  - deploy
+
+build:
+  image: "node:10.16.3-alpine"
+  stage: build
+  script:
+    - npm ci --progress=false
+    - npm run line:build
+    - npm run monochrome:build
+    - rm -rf node_modules dist
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - ./
+
+deploy:
   image: "garland/aws-cli-docker:latest"
   stage: deploy
+  dependencies:
+    - build
+  needs:
+    - build
   script:
     - aws s3 cp ./ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT
-    - aws s3 cp ./icons.json s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/icons.json --content-type application/json --endpoint-url $AWS_ENDPOINT
+    - aws s3 cp ./json/ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/json/ --recursive --content-type application/json --endpoint-url $AWS_ENDPOINT
   environment:
     name: production/$CI_COMMIT_REF_NAME
     url: https://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/index.html

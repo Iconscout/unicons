@@ -1,12 +1,16 @@
 {
   "name": "@iconscout/unicons",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
-    "build": "npm run download && npm run generate-fontello-config && npm run generate",
-    "download": "node build/download.js",
-    "generate": "fontello-cli install && node build/folder-move.js && node build/buildSprite.js",
-    "generate-fontello-config": "node build/generate-fontello-config.js"
+    "line:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
+    "line:download": "node scripts/line/download.js",
+    "line:generate": "node scripts/line/generate-fonts-css.js",
+    "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
+    "line:build-sprite": "node scripts/line/buildSprite.js",
+    "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
+    "monochrome:build-script": "webpack",
+    "monochrome:download": "node scripts/monochrome/download.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +30,16 @@
     "url": "https://github.com/Iconscout/unicons/issues"
   },
   "homepage": "https://iconscout.com/unicons",
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.3",
+    "npm-run-all": "^4.1.5",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
   "dependencies": {
     "async": "^2.6.1",
     "axios": "^0.19.0",

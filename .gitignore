@@ -4,6 +4,7 @@ node_modules
 .env
 
 # Fontello Build Files
+dist/
 fontello-*
 config.json
-duplicates.json
+*-duplicates.json
