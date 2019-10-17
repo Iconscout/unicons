@@ -71,8 +71,8 @@ window.Unicons.refresh = replaceIcons
 const style = document.createElement("style");
 style.innerHTML = `:root {
   --uim-primary-opacity: 1;
-  --uim-secondary-opacity: 0.50;
-  --uim-tertiary-opacity: 0.25;
+  --uim-secondary-opacity: 0.70;
+  --uim-tertiary-opacity: 0.50;
   --uim-quaternary-opacity: 0.25;
   --uim-quinary-opacity: 0;
 }
