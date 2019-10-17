@@ -1,5 +1,5 @@
 const SVG_URL_BASE =
-  "https://unicons.iconscout.com/release/feature-unicons-monochrome/svg/monochrome/";
+  `https://unicons.iconscout.com/release/${CI_COMMIT_REF_NAME}/svg/monochrome/`;
 
 const iconPrefix = 'uim-'
 

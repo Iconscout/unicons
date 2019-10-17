@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'production',
@@ -21,5 +22,8 @@ module.exports = {
                 test: /\.js$/
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.EnvironmentPlugin(['CI_COMMIT_REF_NAME'])
+    ]
 }
