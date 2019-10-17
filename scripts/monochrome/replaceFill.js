@@ -1,11 +1,14 @@
 const COLOR_CLASS = {
-  'fill="#d8d8ff"': 'class="uim-tertiary"',
-  'fill="#b2b1ff"': 'class="uim-secondary"',
-  'fill="#6563ff"': 'class="uim-primary"'
+  'fill="#6563ff"': 'class="uim-primary"',
+  'fill="#8c8aff"': 'class="uim-secondary"',
+  'fill="#b2b1ff"': 'class="uim-tertiary"',
+  'fill="#d8d8ff"': 'class="uim-quaternary"',
+  'fill="#ffffff"': 'class="uim-quinary"',
+  'fill="#fff"': 'class="uim-quinary"',
 }
 
 const replaceFillWithClass = (svg, name) => {
-  const hexList = svg.match(/(fill=\"\#)([A-F0-9a-f]{6})\"/gi)
+  const hexList = svg.match(/(fill=\"\#)([A-F0-9a-f]{3,6})\"/gi)
 
   if (hexList) {
     hexList.forEach(hex => {

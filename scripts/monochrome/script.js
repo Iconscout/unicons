@@ -73,6 +73,8 @@ style.innerHTML = `:root {
   --uim-primary-opacity: 1;
   --uim-secondary-opacity: 0.50;
   --uim-tertiary-opacity: 0.25;
+  --uim-quaternary-opacity: 0.25;
+  --uim-quinary-opacity: 0;
 }
 .uim-svg {
   display: inline-block;
@@ -92,6 +94,12 @@ style.innerHTML = `:root {
 }
 .uim-tertiary {
   opacity: var(--uim-tertiary-opacity);
+}
+.uim-quaternary {
+  opacity: var(--uim-quaternary-opacity);
+}
+.uim-quinary {
+  opacity: var(--uim-quinary-opacity);
 }`;
 
 document.head.appendChild(style);
