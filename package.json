@@ -8,9 +8,9 @@
     "line:generate": "node scripts/line/generate-fonts-css.js",
     "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
     "line:build-sprite": "node scripts/line/buildSprite.js",
-    "monotone:build": "npm run monotone:download && npm run monotone:build-script",
-    "monotone:build-script": "webpack",
-    "monotone:download": "node scripts/monotone/download.js"
+    "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
+    "monochrome:build-script": "webpack",
+    "monochrome:download": "node scripts/monochrome/download.js"
   },
   "repository": {
     "type": "git",

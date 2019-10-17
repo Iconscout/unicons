@@ -4,14 +4,14 @@ module.exports = {
     mode: 'production',
     entry: [
       'regenerator-runtime/runtime',
-      './scripts/monotone/script.js'
+      './scripts/monochrome/script.js'
     ],
     target: 'node',
     devtool: 'source-map',
     output: {
-        path: path.resolve(__dirname, 'script/monotone'),
+        path: path.resolve(__dirname, 'script/monochrome'),
         filename: 'bundle.js',
-        publicPath: 'script/monotone/'
+        publicPath: 'script/monochrome/'
     },
     module: {
         rules: [

@@ -1,8 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
-const targetPath = path.join(process.cwd(), 'json/monotone.json')
-const targetImagePath = path.join(process.cwd(), 'svg/monotone')
+const targetPath = path.join(process.cwd(), 'json/monochrome.json')
+const targetImagePath = path.join(process.cwd(), 'svg/monochrome')
 const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
@@ -37,7 +37,7 @@ const response = axios
     if (duplicates.length && breakOnError) {
       console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
       
-      console.log(`Monotone Duplicates:`, duplicates)
+      console.log(`monochrome Duplicates:`, duplicates)
   
       let dupFiles = []
       duplicates.forEach(d => {
@@ -47,7 +47,7 @@ const response = axios
         ]
       })
   
-      fs.writeFileSync('monotone-duplicates.json', JSON.stringify(dupFiles), 'utf-8')
+      fs.writeFileSync('monochrome-duplicates.json', JSON.stringify(dupFiles), 'utf-8')
 
       throw new Error('There are duplicate files')
     }
@@ -68,9 +68,9 @@ const response = axios
         data.push({
           id: row.id,
           name: name,
-          svg: `svg/monotone/${fileName}`,
+          svg: `svg/monochrome/${fileName}`,
           category: row.category,
-          style: 'Monotone',
+          style: 'monochrome',
           tags: row.tags
         })
       } catch (error) {
