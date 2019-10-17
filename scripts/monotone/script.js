@@ -19,6 +19,9 @@ const replaceWithSVG = (name, svg) => {
     span.firstChild.setAttribute("width", "1em");
     // span.firstChild.setAttribute('height', '1em')
 
+    // Add existing styles to the element
+    span.style.cssText = element.style.cssText
+
     // If user wants white bg rather than opacity
     if (element.classList.contains("uim-white")) {
       span.style.mask = `url(${SVG_URL_BASE}${name}.svg)`;
