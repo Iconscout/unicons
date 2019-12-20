@@ -1,15 +1,55 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - master
+      - 'release-*'
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - uses: actions/checkout@v1
-      - uses: primer/publish@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.16.3
+      - name: Download & Build Icons
+        if: "contains(github.event.head_commit.message, '[update icons]')"
+        run: npm ci --progress=false && npm run line:build && npm run monochrome:build
+        env:
+          CI_COMMIT_REF_NAME: ${{ steps.extract_branch.outputs.branch }}
+          API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
+          API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+      - name: Build Monochrome Script
+        if: "!contains(github.event.head_commit.message, '[update icons]')"
+        run: npm ci --progress=false && npm run monochrome:build-script
+        env:
+          CI_COMMIT_REF_NAME: ${{ steps.extract_branch.outputs.branch }}
+          API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
+          API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Updated icons/build scripts
+      - name: Publish to CDN
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --no-progress --exclude '.git/*' --exclude 'node_modules/*' --exclude 'build/*' --exclude '.github/*'
+        env:
+          AWS_S3_BUCKET: 'unicons.iconscout.com'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
+          DEST_DIR: "release/${{ steps.extract_branch.outputs.branch }}"
+      - name: Publish to NPM
+        uses: primer/publish@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
