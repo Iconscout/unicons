@@ -24,6 +24,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.EnvironmentPlugin(['CI_COMMIT_REF_NAME'])
+        new webpack.EnvironmentPlugin(['GITHUB_REF'])
     ]
 }
