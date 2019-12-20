@@ -23,14 +23,14 @@ jobs:
         if: "contains(github.event.head_commit.message, '[update icons]')"
         run: npm ci --progress=false && npm run line:build && npm run monochrome:build
         env:
-          GITHUB_REF: ${{ secrets.GITHUB_REF }}
+          CI_COMMIT_REF_NAME: ${{ steps.extract_branch.outputs.branch }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
       - name: Build Monochrome Script
         if: "!contains(github.event.head_commit.message, '[update icons]')"
         run: npm ci --progress=false && npm run monochrome:build-script
         env:
-          GITHUB_REF: ${{ secrets.GITHUB_REF }}
+          CI_COMMIT_REF_NAME: ${{ steps.extract_branch.outputs.branch }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
       - name: Create Pull Request
