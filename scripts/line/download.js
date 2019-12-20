@@ -9,7 +9,7 @@ const filter = require('lodash/filter')
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
 
-const url = process.env.API_DOWNLOAD
+const url = process.env.API_DOWNLOAD_LINE
 const breakOnError = true
 
 console.log(`Download SVGs in ${process.cwd()}`)
