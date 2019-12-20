@@ -33,3 +33,51 @@
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
+/* Flip and Rotate */
+
+[class*="uil-"].flip-horizontal:before {
+  transform: scaleX(-1);
+}
+[class*="uil-"].flip-horizontal.rotate-90:before {
+  transform: rotate(90deg) scaleX(-1);
+}
+[class*="uil-"].flip-horizontal.rotate-180:before {
+  transform: rotate(180deg) scaleX(-1);
+}
+[class*="uil-"].flip-horizontal.rotate-270:before {
+  transform: rotate(270deg) scaleX(-1);
+}
+[class*="uil-"].flip-horizontal.flip-vertical:before {
+  transform: scale(-1);
+}
+[class*="uil-"].flip-horizontal.flip-vertical.rotate-90:before {
+  transform: rotate(90deg) scale(-1);
+}
+[class*="uil-"].flip-horizontal.flip-vertical.rotate-180:before {
+  transform: rotate(180deg) scale(-1);
+}
+[class*="uil-"].flip-horizontal.flip-vertical.rotate-270:before {
+  transform: rotate(270deg) scale(-1);
+}
+[class*="uil-"].flip-vertical:before {
+  transform: scaleY(-1);
+}
+[class*="uil-"].flip-vertical.rotate-90:before {
+  transform: rotate(90deg) scaleY(-1);
+}
+[class*="uil-"].flip-vertical.rotate-180:before {
+  transform: rotate(180deg) scaleY(-1);
+}
+[class*="uil-"].flip-vertical.rotate-270:before {
+  transform: rotate(270deg) scaleY(-1);
+}
+[class*="uil-"].rotate-90:before {
+  transform: rotate(90deg);
+}
+[class*="uil-"].rotate-180:before {
+  transform: rotate(180deg);
+}
+[class*="uil-"].rotate-270:before {
+  transform: rotate(270deg);
+}
