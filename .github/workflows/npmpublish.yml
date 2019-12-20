@@ -1,8 +1,11 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - master
+      - 'release-*'
 
 jobs:
   publish-npm:
