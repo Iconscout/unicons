@@ -2,7 +2,7 @@ const fs = require('fs')
 const axios = require('axios')
 
 const downloadImage = async (url, path, parseSVG) => {
-  console.log(`Downloading Image: ${url}`)
+  // console.log(`Downloading Image: ${url}`)
   // axios image download with response type "stream"
   const response = await axios({
     method: 'GET',

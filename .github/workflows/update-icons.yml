@@ -1,0 +1,28 @@
+name: Update Icons
+
+on: 
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  update-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.16.3
+      - name: Download Icons
+        run: npm ci --progress=false && npm run line:download && npm run monochrome:download
+        env:
+          API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
+          API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Updated Icons

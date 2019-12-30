@@ -9,9 +9,5 @@ fontello-*
 config.json
 *-duplicates.json
 
-# Build Files
-fonts/*
-json/*
-script/*
-sprite/*
-css/unicons*
+# Code
+.github/

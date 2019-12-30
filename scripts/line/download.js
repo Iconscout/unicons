@@ -1,16 +1,20 @@
 const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
-const targetPath = path.join(process.cwd(), 'json/line.json')
-const targetImagePath = path.join(process.cwd(), 'svg/line')
 const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
+
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
 
+const targetPath = path.join(process.cwd(), 'json/line.json')
+const targetImagePath = path.join(process.cwd(), 'svg/line')
+
 const url = process.env.API_DOWNLOAD_LINE
 const breakOnError = true
+
+fs.mkdirSync(path.join(process.cwd(), 'json'))
 
 console.log(`Download SVGs in ${process.cwd()}`)
 
