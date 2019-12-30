@@ -10,7 +10,7 @@ const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
 const replaceFill = require('./replaceFill')
 
-const url = process.env.API_DOWNLOAD_MONOCHROME + '?bundle_id=3135'
+const url = process.env.API_DOWNLOAD_MONOCHROME
 const breakOnError = true
 
 console.log(`Download SVGs in ${process.cwd()}`)
