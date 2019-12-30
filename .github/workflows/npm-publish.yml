@@ -2,13 +2,8 @@ name: Publish to NPM
 
 on:
   push:
-    # Sequence of patterns matched against refs/heads
-    branches: 
-      - 'release-*'
     tags:
       - '*'
-  release:
-    types: [created, published]
 
 jobs:
   publish-npm:
@@ -43,7 +38,6 @@ jobs:
           AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
           DEST_DIR: "release/${{ steps.extract_version.outputs.VERSION }}"
       - name: Publish to NPM
-        uses: primer/publish@v2.0.0
+        uses: geoblink/publish-to-npm@v1.0.2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
