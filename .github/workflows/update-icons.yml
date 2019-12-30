@@ -12,18 +12,13 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10.16.3
-      - name: Download & Build Icons
-        run: npm ci --progress=false && npm run line:build && npm run monochrome:build
+      - name: Download Icons
+        run: npm ci --progress=false && npm run line:build && npm run monochrome:download
         env:
-          CI_COMMIT_REF_NAME: ${{ steps.extract_branch.outputs.branch }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
       - name: Create Pull Request
