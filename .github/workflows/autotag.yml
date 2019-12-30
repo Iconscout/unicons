@@ -13,4 +13,4 @@ jobs:
     - uses: butlerlogic/action-autotag@master
       with:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        tag_prefx: "v"
+        tag_prefix: "v"
