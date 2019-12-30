@@ -7,7 +7,7 @@
     "line:download": "node scripts/line/download.js",
     "line:generate": "node scripts/line/generate-fonts-css.js",
     "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
-    "line:build-sprite": "node scripts/line/buildSprite.js",
+    "line:build-sprite": "node scripts/line/build-sprite.js",
     "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
     "monochrome:build-script": "webpack",
     "monochrome:download": "node scripts/monochrome/download.js"

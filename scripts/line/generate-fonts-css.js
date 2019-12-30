@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob')
-const fs = require('fs')
+const fs = require('fs-plus')
 const fontello = require('fontello-cli/lib/fontello')
 const sourcePath = path.join(process.cwd(), 'dist/config/*.json')
 const fontsPath = path.join(process.cwd(), 'fonts')
@@ -14,6 +14,8 @@ let cssCodesList = []
 const msleep = (n) => {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
 }
+
+fs.mkdirSync(fontsPath)
 
 glob(sourcePath, (err, files) => {
   files.forEach(file => {
