@@ -37,7 +37,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
           DEST_DIR: "release/${{ steps.extract_version.outputs.VERSION }}"
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.16.3
       - name: Publish to NPM
-        uses: geoblink/publish-to-npm@v1.0.2
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc && npm publish
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
