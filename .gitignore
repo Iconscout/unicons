@@ -10,4 +10,4 @@ config.json
 *-duplicates.json
 
 # Build Files
-css/unicons-*
+css/unicons*
