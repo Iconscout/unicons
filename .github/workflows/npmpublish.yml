@@ -5,9 +5,8 @@ on:
     # Sequence of patterns matched against refs/heads
     branches: 
       - 'release-*'
-  pull_request:
-  release:
-    types: [created]
+    tags:
+      - v*.*.*
 
 jobs:
   publish-npm:
@@ -26,6 +25,11 @@ jobs:
           CI_COMMIT_REF_NAME: ${{ steps.extract_version.outputs.VERSION }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Updated Icons
       - name: Publish to CDN
         uses: jakejarvis/s3-sync-action@master
         with:

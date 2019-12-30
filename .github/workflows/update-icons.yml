@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 10.16.3
       - name: Download Icons
-        run: npm ci --progress=false && npm run line:build && npm run monochrome:download
+        run: npm ci --progress=false && npm run line:download && npm run monochrome:download
         env:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
@@ -25,4 +25,4 @@ jobs:
         uses: peter-evans/create-pull-request@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Updated icons/build scripts
+          title: Updated Icons
