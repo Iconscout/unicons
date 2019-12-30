@@ -6,6 +6,7 @@ on:
     branches: 
       - 'release-*'
     tags:
+      - '*'
   release:
     types: [created, published]
 
