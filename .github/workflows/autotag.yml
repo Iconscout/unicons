@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        token: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
+        fetch-depth: 0
     - uses: butlerlogic/action-autotag@master
       with:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
