@@ -9,5 +9,9 @@ fontello-*
 config.json
 *-duplicates.json
 
-# Monochrone Build Files
+# Build Files
+fonts/
+css/unicons-*
+sprite/
+json/
 script/
