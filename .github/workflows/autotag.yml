@@ -15,5 +15,5 @@ jobs:
         fetch-depth: 0
     - uses: butlerlogic/action-autotag@master
       with:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        GITHUB_TOKEN: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
         tag_prefix: "v"
