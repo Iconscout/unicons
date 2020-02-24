@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-console.log(process.env.CI_COMMIT_REF_NAME);
-
 module.exports = {
     mode: 'production',
     entry: [
@@ -26,6 +24,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.EnvironmentPlugin(['CI_COMMIT_REF_NAME'])
+        new webpack.EnvironmentPlugin(['CI_COMMIT_REF_NAME', 'RELEASE_DIR'])
     ]
 }
