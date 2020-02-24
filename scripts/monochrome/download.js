@@ -33,13 +33,15 @@ const response = axios
       name: item.tags[item.tags.length - 1],
     }))
 
+    console.log(`Total Icons: ${icons.length}`)
+
     const names = icons.map(icon => icon.name)
     const uniqueNames = uniq(names)
     const repeated = countDuplicates(names)
     const duplicates = filter(repeated, (item) => item.count > 1)
 
     if (duplicates.length && breakOnError) {
-      console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
+      console.log(`Unique Names: ${uniqueNames.length}`)
       
       console.log(`monochrome Duplicates:`, duplicates)
   
