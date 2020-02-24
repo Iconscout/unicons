@@ -17,8 +17,6 @@ if (!fs.existsSync(path.join(process.cwd(), 'json'))) {
   fs.mkdirSync(path.join(process.cwd(), 'json'))
 }
 
-console.log(`Download SVGs in ${process.cwd()}`)
-
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Accept'] = 'application/json'
 axios.defaults.withCredentials = true
@@ -33,7 +31,7 @@ const response = axios
       name: item.tags[item.tags.length - 1],
     }))
 
-    console.log(`Total Icons: ${icons.length}`)
+    console.log(`Download ${icons.length} SVGs in ${process.cwd()}`)
 
     const names = icons.map(icon => icon.name)
     const uniqueNames = uniq(names)
