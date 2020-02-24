@@ -23,6 +23,7 @@ jobs:
           CI_COMMIT_REF_NAME: ${{ steps.extract_version.outputs.VERSION }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+          RELEASE_DIR: "release"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1
         with:
