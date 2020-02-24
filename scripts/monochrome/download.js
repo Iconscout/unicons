@@ -40,8 +40,7 @@ const response = axios
 
     if (duplicates.length && breakOnError) {
       console.log(`Unique Names: ${uniqueNames.length}`)
-      
-      console.log(`monochrome Duplicates:`, duplicates)
+      console.log(`Monochrome Duplicates found:`, duplicates)
   
       let dupFiles = []
       duplicates.forEach(d => {
