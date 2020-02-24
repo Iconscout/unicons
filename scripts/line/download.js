@@ -14,7 +14,9 @@ const targetImagePath = path.join(process.cwd(), 'svg/line')
 const url = process.env.API_DOWNLOAD_LINE
 const breakOnError = true
 
-fs.mkdirSync(path.join(process.cwd(), 'json'))
+if (!fs.existsSync(path.join(process.cwd(), 'json'))) {
+  fs.mkdirSync(path.join(process.cwd(), 'json'))
+}
 
 console.log(`Download SVGs in ${process.cwd()}`)
 
