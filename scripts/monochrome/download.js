@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-plus')
 const path = require('path')
 const axios = require('axios')
 const targetPath = path.join(process.cwd(), 'json/monochrome.json')
@@ -12,6 +12,8 @@ const replaceFill = require('./replaceFill')
 
 const url = process.env.API_DOWNLOAD_MONOCHROME
 const breakOnError = true
+
+fs.mkdirSync(path.join(process.cwd(), 'json'))
 
 console.log(`Download SVGs in ${process.cwd()}`)
 
