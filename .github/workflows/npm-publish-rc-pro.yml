@@ -1,4 +1,4 @@
-name: Publish to NPM RC
+name: Publish Monochrome PRO to NPM RC
 
 on:
   push:
