@@ -38,3 +38,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
           DEST_DIR: "release-pro/${{ steps.extract_version.outputs.VERSION }}"
+          RELEASE_DIR: "release-pro"
