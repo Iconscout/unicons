@@ -74,7 +74,8 @@ const response = axios
           svg: `svg/monochrome/${fileName}`,
           category: row.category,
           style: 'monochrome',
-          tags: row.tags
+          tags: row.tags,
+          pro: Boolean(row.price)
         })
       } catch (error) {
         console.error(error)
