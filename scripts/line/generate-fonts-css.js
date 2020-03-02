@@ -15,7 +15,9 @@ const msleep = (n) => {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
 }
 
-fs.mkdirSync(fontsPath)
+if (!fs.existsSync(fontsPath)) {
+  fs.mkdirSync(fontsPath)
+}
 
 glob(sourcePath, (err, files) => {
   files.forEach(file => {
