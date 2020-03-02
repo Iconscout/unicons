@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-plus')
 const path = require('path')
 const axios = require('axios')
 const targetPath = path.join(process.cwd(), 'json/monochrome.json')
@@ -10,10 +10,12 @@ const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
 const replaceFill = require('./replaceFill')
 
-const url = process.env.API_DOWNLOAD_MONOCHROME + '?bundle_id=3135'
+const url = process.env.API_DOWNLOAD_MONOCHROME
 const breakOnError = true
 
-console.log(`Download SVGs in ${process.cwd()}`)
+if (!fs.existsSync(path.join(process.cwd(), 'json'))) {
+  fs.mkdirSync(path.join(process.cwd(), 'json'))
+}
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Accept'] = 'application/json'
@@ -29,15 +31,16 @@ const response = axios
       name: item.tags[item.tags.length - 1],
     }))
 
+    console.log(`Download ${icons.length} SVGs in ${process.cwd()}`)
+
     const names = icons.map(icon => icon.name)
     const uniqueNames = uniq(names)
     const repeated = countDuplicates(names)
     const duplicates = filter(repeated, (item) => item.count > 1)
 
     if (duplicates.length && breakOnError) {
-      console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
-      
-      console.log(`monochrome Duplicates:`, duplicates)
+      console.log(`Unique Names: ${uniqueNames.length}`)
+      console.log(`Monochrome Duplicates found:`, duplicates)
   
       let dupFiles = []
       duplicates.forEach(d => {
@@ -71,7 +74,8 @@ const response = axios
           svg: `svg/monochrome/${fileName}`,
           category: row.category,
           style: 'monochrome',
-          tags: row.tags
+          tags: row.tags,
+          pro: Boolean(row.price)
         })
       } catch (error) {
         console.error(error)

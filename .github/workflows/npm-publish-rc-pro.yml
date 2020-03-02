@@ -1,0 +1,35 @@
+name: Publish Monochrome PRO to NPM RC
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches: 
+      - 'release-*'
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract Version
+        id: extract_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.16.3
+      - name: Download & Build Icons
+        run: npm ci --progress=false && npm run monochrome:build
+        env:
+          CI_COMMIT_REF_NAME: ${{ steps.extract_version.outputs.VERSION }}
+          API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
+          API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME_PRO }}
+          RELEASE_DIR: "release-pro"
+      - name: Publish to CDN
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --no-progress --exclude '.git/*' --exclude 'node_modules/*' --exclude 'build/*' --exclude '.github/*'
+        env:
+          AWS_S3_BUCKET: 'unicons.iconscout.com'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DEST_DIR: "release-pro/${{ steps.extract_version.outputs.VERSION }}"
