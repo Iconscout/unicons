@@ -14,7 +14,7 @@ const downloadImage = async (url, path, parseSVG) => {
 
   // If we've to modify svg before saving
   if (parseSVG) {
-    svg = parseSVG(svg)
+    svg = await parseSVG(svg)
   }
 
   fs.writeFileSync(path, svg, 'utf-8')
