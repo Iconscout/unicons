@@ -4,6 +4,7 @@ const axios = require('axios')
 const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
+const sortBy = require('lodash/sortBy')
 
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
@@ -88,7 +89,7 @@ const response = axios
 
       console.log(`${data.length} Images Downloaded!`)
       // Save the Airtable data as json
-      fs.writeFileSync(targetPath, JSON.stringify(data), 'utf-8')
+      fs.writeFileSync(targetPath, JSON.stringify(sortBy(data, 'name')), 'utf-8')
 
       // console.log(`New Data saved from Airtable to ${targetPath}!`)
     })
