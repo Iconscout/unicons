@@ -16,7 +16,10 @@ glob(sourcePath, (err, files) => {
     return JSON.parse(fs.readFileSync(f))
   })
 
-  const allFilesJSON = allFilesJSONArray[0]
+  const allFilesJSON = {
+    ...allFilesJSONArray[0],
+    name: 'unicons'
+  }
 
   allFilesJSONArray.forEach(j => {
     allFilesJSON.glyphs = [

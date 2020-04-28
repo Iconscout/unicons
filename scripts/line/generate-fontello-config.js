@@ -44,7 +44,7 @@ const failedFiles = []
 
 // Create all svgo promises
 // We've to Sort the config so that we can generate proper Unicode-range limits in @font-face
-chunk(sortBy(lineJSONConfig, 'code'), 30).forEach((chunk, chunkIndex) => {
+chunk(sortBy(lineJSONConfig, 'code'), 60).forEach((chunk, chunkIndex) => {
   const promises = []
   const configIcons = []
 
