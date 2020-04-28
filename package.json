@@ -1,11 +1,11 @@
 {
   "name": "@iconscout/unicons",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "line:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
     "line:download": "node scripts/line/download.js",
-    "line:generate": "node scripts/line/generate-fonts-css.js",
+    "line:generate": "node scripts/line/generate-fonts-css.js && node scripts/line/generate-single-font.js",
     "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
     "line:build-sprite": "node scripts/line/build-sprite.js",
     "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
