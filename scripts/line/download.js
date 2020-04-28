@@ -5,6 +5,7 @@ const eachLimit = require('async/eachLimit')
 const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
 const sortBy = require('lodash/sortBy')
+const maxBy = require('lodash/maxBy')
 
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
@@ -12,14 +13,19 @@ const downloadImage = require('../utils/downloadImage')
 const targetPath = path.join(process.cwd(), 'json/line.json')
 const targetImagePath = path.join(process.cwd(), 'svg/line')
 
+const existingConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'json/line.json'), 'utf-8'))
+
 const url = process.env.API_DOWNLOAD_LINE
 const breakOnError = true
+
+const existingMaxIcon = maxBy(existingConfig, 'code')
+let startCharCode = existingMaxIcon ? existingMaxIcon.code : 59392
 
 if (!fs.existsSync(path.join(process.cwd(), 'json'))) {
   fs.mkdirSync(path.join(process.cwd(), 'json'))
 }
 
-console.log(`Download SVGs in ${process.cwd()}`)
+console.log(`Download SVGs in ${process.cwd()}. Max Char Code ${startCharCode}, Unicode ${startCharCode.toString(16)}.`)
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Accept'] = 'application/json'
@@ -59,7 +65,7 @@ const response = axios
     }
 
     // Download All the icons from Iconscout
-    eachLimit(icons, 20, async (row) => {
+    eachLimit(icons, 50, async (row) => {
       const url = row.svg
       // const ext = url.indexOf('.gif') === -1 ? 'jpg' : 'gif'
       const name = row.name
@@ -69,13 +75,18 @@ const response = axios
       try {
         await downloadImage(url, filePath)
 
+        const charCodeExists = existingConfig.find(i => i.name === name)
+        const charCode = charCodeExists && charCodeExists.code ? charCodeExists.code : startCharCode++
+
         data.push({
           id: row.id,
           name: name,
           svg: `svg/line/${fileName}`,
           category: row.category,
           style: 'Line',
-          tags: row.tags
+          tags: row.tags,
+          code: charCode,
+          unicode: charCode.toString(16)
         })
       } catch (error) {
         console.error(error)
