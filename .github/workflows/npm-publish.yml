@@ -60,7 +60,7 @@ jobs:
           tag_name: ${{ steps.extract_version.outputs.VERSION }}
           release_name: Release ${{ steps.extract_version.outputs.VERSION }}
           draft: true
-          prerelease: true
+          prerelease: false
       - name: Upload Release Asset
         id: upload_release_asset 
         uses: actions/upload-release-asset@v1
