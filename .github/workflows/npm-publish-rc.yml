@@ -43,3 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: fonts
+          path: dist/fonts

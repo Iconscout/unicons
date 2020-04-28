@@ -43,3 +43,8 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc && npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: fonts
+          path: dist/fonts
