@@ -20,7 +20,7 @@ fs.mkdirSync(path.join(process.cwd(), 'dist'))
 fs.mkdirSync(targetFileDir)
 
 const baseConfig = {
-  "name": "unicons",
+  "name": "Unicons",
   "css_prefix_text": "uil-",
   "css_use_suffix": false,
   "hinting": true,
@@ -30,10 +30,9 @@ const baseConfig = {
   "glyphs": []
 }
 
-const saveConfig = (glyphs, name, file) => {
+const saveConfig = (glyphs, file) => {
   const config = {
     ...baseConfig,
-    name,
     glyphs
   }
 
@@ -109,7 +108,7 @@ chunk(sortBy(lineJSONConfig, 'code'), 30).forEach((chunk, chunkIndex) => {
     } else {
       const file = path.join(targetFileDir, `config${chunkIndex}.json`)
       // Save Fontello Config
-      saveConfig(configIcons, `unicons-${chunkIndex}`, file)
+      saveConfig(configIcons, file)
       console.log(`Fontello config generated to ${file}`)
     }
   })
