@@ -4,6 +4,7 @@ const Svgo = require('svgo')
 const cheerio = require('cheerio')
 const uuidv4 = require('uuid/v4')
 const chunk = require('lodash/chunk')
+const sortBy = require('lodash/sortBy')
 const parse = require('parse-svg-path')
 const scale = require('scale-svg-path')
 const serialize = require('serialize-svg-path')
@@ -42,7 +43,8 @@ const saveConfig = (glyphs, name, file) => {
 const failedFiles = []
 
 // Create all svgo promises
-chunk(lineJSONConfig, 30).forEach((chunk, chunkIndex) => {
+// We've to Sort the config so that we can generate proper Unicode-range limits in @font-face
+chunk(sortBy(lineJSONConfig, 'code'), 30).forEach((chunk, chunkIndex) => {
   const promises = []
   const configIcons = []
 
