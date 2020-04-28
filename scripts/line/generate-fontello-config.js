@@ -30,9 +30,10 @@ const baseConfig = {
   "glyphs": []
 }
 
-const saveConfig = (glyphs, file) => {
+const saveConfig = (glyphs, name, file) => {
   const config = {
     ...baseConfig,
+    name,
     glyphs
   }
 
@@ -108,7 +109,7 @@ chunk(sortBy(lineJSONConfig, 'code'), 30).forEach((chunk, chunkIndex) => {
     } else {
       const file = path.join(targetFileDir, `config${chunkIndex}.json`)
       // Save Fontello Config
-      saveConfig(configIcons, file)
+      saveConfig(configIcons, `unicons-${chunkIndex}`, file)
       console.log(`Fontello config generated to ${file}`)
     }
   })
