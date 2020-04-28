@@ -20,7 +20,7 @@ fs.mkdirSync(path.join(process.cwd(), 'dist'))
 fs.mkdirSync(targetFileDir)
 
 const baseConfig = {
-  "name": "Unicons",
+  "name": "unicons",
   "css_prefix_text": "uil-",
   "css_use_suffix": false,
   "hinting": true,
