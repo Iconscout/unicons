@@ -105,6 +105,3 @@ const response = axios
       // console.log(`New Data saved from Airtable to ${targetPath}!`)
     })
   })
-  .catch(e => {
-    console.error(e)
-  })
