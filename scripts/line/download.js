@@ -19,13 +19,13 @@ const url = process.env.API_DOWNLOAD_LINE
 const breakOnError = true
 
 const existingMaxIcon = maxBy(existingConfig, 'code')
-let startCharCode = existingMaxIcon ? existingMaxIcon.code : 59392
+let startCharCode = existingMaxIcon ? existingMaxIcon.code + 1 : 59392
 
 if (!fs.existsSync(path.join(process.cwd(), 'json'))) {
   fs.mkdirSync(path.join(process.cwd(), 'json'))
 }
 
-console.log(`Download SVGs in ${process.cwd()}. Max Char Code ${startCharCode}, Unicode ${startCharCode.toString(16)}.`)
+console.log(`Download SVGs in ${process.cwd()}. Next Starting Char Code ${startCharCode}, Unicode ${startCharCode.toString(16)}.`)
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Accept'] = 'application/json'
