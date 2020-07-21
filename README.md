@@ -8,7 +8,7 @@
 It's easy to use Unicons on your website by just inserting following css. You can also download this repo and use the css from `css` folder.
 
 ```html
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.10/css/unicons.css">
 ```
 
 And use the icons in your `body` as below.
