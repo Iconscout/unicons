@@ -3,11 +3,13 @@ const glob = require('glob')
 const fs = require('fs-plus')
 const fontello = require('fontello-cli/lib/fontello')
 const sourcePath = path.join(process.cwd(), 'dist/config/*.json')
-const fontsPath = path.join(process.cwd(), 'fonts')
+const fontsPath = path.join(process.cwd(), `fonts/${process.env.STYLE}`)
 const cssTempPath = path.join(process.cwd(), 'dist/')
-const cssPath = path.join(process.cwd(), 'css/unicons.css')
+const cssPath = path.join(process.cwd(), `css/${process.env.STYLE}.css`)
 
 const cssBefore = fs.readFileSync(path.join(process.cwd(), 'css/before.css'), 'utf-8')
+                    .replace(/\{CSS_PREFIX\}/g, process.env.CSS_PREFIX)
+                    .replace(/\{STYLE\}/g, process.env.STYLE)
 const cssFontFaceList = []
 let cssCodesList = []
 
@@ -21,7 +23,7 @@ if (!fs.existsSync(fontsPath)) {
 
 glob(sourcePath, (err, files) => {
   files.forEach(file => {
-    console.log(`Generating Font for ${file}`)
+    console.log(`Generating ${process.env.STYLE} Font for ${file}`)
     fontello.install({
       config: file,
       css: cssTempPath,
@@ -35,7 +37,7 @@ glob(sourcePath, (err, files) => {
     const lastChar = allowedChars[allowedChars.length - 1].toString(16)
 
     cssFontFaceList.push(`@font-face {
-  font-family: 'unicons';
+  font-family: 'unicons-${process.env.STYLE}';
   src: url('../fonts/${configData.name}.eot');
   src: url('../fonts/${configData.name}.eot#iefix') format('embedded-opentype'),
         url('../fonts/${configData.name}.woff2') format('woff2'),
@@ -49,7 +51,7 @@ glob(sourcePath, (err, files) => {
 
     cssCodesList = [
       ...cssCodesList,
-      ...configData.glyphs.map(g => `.uil-${g.css}:before { content: '\\${g.code.toString(16)}'; }`)
+      ...configData.glyphs.map(g => `.${process.env.CSS_PREFIX}-${g.css}:before { content: '\\${g.code.toString(16)}'; }`)
     ]
 
     msleep(3000)

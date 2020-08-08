@@ -6,16 +6,17 @@ const uniq = require('lodash/uniq')
 const filter = require('lodash/filter')
 const sortBy = require('lodash/sortBy')
 const maxBy = require('lodash/maxBy')
+const upperFirst = require('lodash/upperFirst')
 
 const countDuplicates = require('../utils/countDuplicates')
 const downloadImage = require('../utils/downloadImage')
 
-const targetPath = path.join(process.cwd(), 'json/line.json')
-const targetImagePath = path.join(process.cwd(), 'svg/line')
+const targetPath = path.join(process.cwd(), `json/${process.env.STYLE}.json`)
+const targetImagePath = path.join(process.cwd(), `svg/${process.env.STYLE}`)
 
-const existingConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'json/line.json'), 'utf-8'))
+const existingConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), `json/${process.env.STYLE}.json`), 'utf-8'))
 
-const url = process.env.API_DOWNLOAD_LINE
+const url = process.env[`API_DOWNLOAD_${process.env.STYLE.toUpperCase()}`]
 const breakOnError = true
 
 const existingMaxIcon = maxBy(existingConfig, 'code')
@@ -49,7 +50,7 @@ const response = axios
     if (duplicates.length && breakOnError) {
       console.log(`Total Icons: ${names.length}, Unique Names: ${uniqueNames.length}`)
       
-      console.log(`Line Duplicates:`, duplicates)
+      console.log(`${process.env.STYLE} Duplicates:`, duplicates)
   
       let dupFiles = []
       duplicates.forEach(d => {
@@ -59,7 +60,7 @@ const response = axios
         ]
       })
   
-      fs.writeFileSync('line-duplicates.json', JSON.stringify(dupFiles), 'utf-8')
+      fs.writeFileSync(`${process.env.STYLE}-duplicates.json`, JSON.stringify(dupFiles), 'utf-8')
 
       throw new Error('There are duplicate files')
     }
@@ -81,9 +82,9 @@ const response = axios
         data.push({
           id: row.id,
           name: name,
-          svg: `svg/line/${fileName}`,
+          svg: `svg/${process.env.STYLE}/${fileName}`,
           category: row.category,
-          style: 'Line',
+          style: upperFirst(process.env.STYLE),
           tags: row.tags,
           code: charCode,
           unicode: charCode.toString(16)

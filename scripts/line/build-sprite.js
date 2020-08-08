@@ -3,11 +3,11 @@ const fs = require('fs-plus')
 const glob = require('glob')
 const path = require('path')
 const sprites = svgstore()
-const svgFiles = path.join(process.cwd(), 'svg/line/*svg')
+const svgFiles = path.join(process.cwd(), `svg/${process.env.STYLE}/*svg`)
 
 if (!fs.existsSync(path.join(process.cwd(), 'sprite'))) {
   fs.mkdirSync(path.join(process.cwd(), 'sprite'))
-  fs.mkdirSync(path.join(process.cwd(), 'sprite/line'))
+  fs.mkdirSync(path.join(process.cwd(), `sprite/${process.env.STYLE}`))
 }
 
 let writtenFiles = 0
@@ -20,7 +20,7 @@ glob(svgFiles, {}, function (er, files) {
     writtenFiles += 1
   })
 
-  fs.writeFile(path.join(process.cwd(), 'sprite/line/unicons.svg'), sprites, (err) => {
+  fs.writeFile(path.join(process.cwd(), `sprite/${process.env.STYLE}/unicons.svg`), sprites, (err) => {
     if (err) console.log(err)
   })
 

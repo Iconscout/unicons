@@ -12,7 +12,7 @@ const serialize = require('serialize-svg-path')
 const svgoConfig = require('./svgoConfig')
 const svgo = new Svgo(svgoConfig)
 
-const lineJSONConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'json/line.json'), 'utf-8'))
+const JSONConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), `json/${process.env.STYLE}.json`), 'utf-8'))
 const targetFileDir = path.join(process.cwd(), 'dist/config')
 
 fs.removeSync(path.join(process.cwd(), 'dist'))
@@ -20,8 +20,8 @@ fs.mkdirSync(path.join(process.cwd(), 'dist'))
 fs.mkdirSync(targetFileDir)
 
 const baseConfig = {
-  "name": "unicons",
-  "css_prefix_text": "uil-",
+  "name": `unicons-${process.env.STYLE}`,
+  "css_prefix_text": `${process.env.CSS_PREFIX}-`,
   "css_use_suffix": false,
   "hinting": true,
   "units_per_em": 1000,
@@ -44,7 +44,7 @@ const failedFiles = []
 
 // Create all svgo promises
 // We've to Sort the config so that we can generate proper Unicode-range limits in @font-face
-chunk(sortBy(lineJSONConfig, 'code'), 60).forEach((chunk, chunkIndex) => {
+chunk(sortBy(JSONConfig, 'code'), 60).forEach((chunk, chunkIndex) => {
   const promises = []
   const configIcons = []
 

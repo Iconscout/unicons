@@ -1,16 +1,18 @@
 {
   "name": "@iconscout/unicons",
-  "version": "2.1.9",
+  "version": "3.0.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
-    "line:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
+    "font:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
+    "line:build": "cross-env STYLE=line CSS_PREFIX=uil npm run font:build",
     "line:download": "node scripts/line/download.js",
     "line:generate": "node scripts/line/generate-fonts-css.js && node scripts/line/generate-single-font.js",
     "line:generate-fontello-config": "node scripts/line/generate-fontello-config.js",
     "line:build-sprite": "node scripts/line/build-sprite.js",
     "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
     "monochrome:build-script": "webpack",
-    "monochrome:download": "node scripts/monochrome/download.js"
+    "monochrome:download": "node scripts/monochrome/download.js",
+    "solid:build": "cross-env-shell STYLE=solid CSS_PREFIX=uis npm run font:build"
   },
   "repository": {
     "type": "git",
