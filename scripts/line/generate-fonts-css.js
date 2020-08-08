@@ -38,12 +38,12 @@ glob(sourcePath, (err, files) => {
 
     cssFontFaceList.push(`@font-face {
   font-family: 'unicons-${process.env.STYLE}';
-  src: url('../fonts/${configData.name}.eot');
-  src: url('../fonts/${configData.name}.eot#iefix') format('embedded-opentype'),
-        url('../fonts/${configData.name}.woff2') format('woff2'),
-        url('../fonts/${configData.name}.woff') format('woff'),
-        url('../fonts/${configData.name}.ttf') format('truetype'),
-        url('../fonts/${configData.name}.svg#unicons') format('svg');
+  src: url('../fonts/${process.env.STYLE}/${configData.name}.eot');
+  src: url('../fonts/${process.env.STYLE}/${configData.name}.eot#iefix') format('embedded-opentype'),
+        url('../fonts/${process.env.STYLE}/${configData.name}.woff2') format('woff2'),
+        url('../fonts/${process.env.STYLE}/${configData.name}.woff') format('woff'),
+        url('../fonts/${process.env.STYLE}/${configData.name}.ttf') format('truetype'),
+        url('../fonts/${process.env.STYLE}/${configData.name}.svg#unicons') format('svg');
   font-weight: normal;
   font-style: normal;
   unicode-range: U+${firstChar.toUpperCase()}-${lastChar.toUpperCase()};
