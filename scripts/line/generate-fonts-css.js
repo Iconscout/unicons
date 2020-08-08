@@ -18,7 +18,7 @@ const msleep = (n) => {
 }
 
 if (!fs.existsSync(fontsPath)) {
-  fs.mkdirSync(fontsPath)
+  fs.mkdirSync(fontsPath, { recursive: true })
 }
 
 glob(sourcePath, (err, files) => {
