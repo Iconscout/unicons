@@ -87,7 +87,8 @@ const response = axios
           style: upperFirst(process.env.STYLE),
           tags: row.tags,
           code: charCode,
-          unicode: charCode.toString(16)
+          unicode: charCode.toString(16),
+          pro: Boolean(row.price)
         })
       } catch (error) {
         console.error(error)
