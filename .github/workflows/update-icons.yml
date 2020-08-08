@@ -17,12 +17,12 @@ jobs:
         with:
           node-version: 10.16.3
       - name: Download Line Icons
-        run: npm ci --progress=false && cross-env STYLE=line CSS_PREFIX=uil npm run line:download
+        run: npm ci --progress=false && export STYLE=line CSS_PREFIX=uil npm run line:download
         env:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
       - name: Download Solid Icons
-        run: cross-env STYLE=solid CSS_PREFIX=uis npm run solid:download
+        run: export STYLE=solid CSS_PREFIX=uis npm run solid:download
         env:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
