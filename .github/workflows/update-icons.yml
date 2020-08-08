@@ -23,7 +23,7 @@ jobs:
           STYLE: line
           CSS_PREFIX: uil
       - name: Download Solid Icons
-        run: npm run solid:download
+        run: npm run line:download
         env:
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID }}
           STYLE: solid
