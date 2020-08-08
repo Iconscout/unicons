@@ -24,7 +24,6 @@ jobs:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID_PRO }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME_PRO }}
-        run: npm ci --progress=false && npm run monochrome:build
           RELEASE_DIR: "release-pro"
       - name: Publish to CDN
         uses: jakejarvis/s3-sync-action@master
