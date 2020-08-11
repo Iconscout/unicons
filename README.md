@@ -8,7 +8,7 @@
 It's easy to use Unicons on your website by just inserting following css. You can also download this repo and use the css from `css` folder.
 
 ```html
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.11/css/unicons.css">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/unicons.css">
 ```
 
 And use the icons in your `body` as below.
@@ -25,13 +25,29 @@ npm install --save @iconscout/unicons
 ### Using as an SVG
 If you're a designer then it's always great to have SVG files. You can download SVGs from [Official Unicons Website](https://iconscout.com/unicons) or [download Icondrop](https://iconscout.com/icondrop) to access these icons right into Sketch, Adobe Xd, Adobe Illustrator, and many more.
 
+### Use with JS Frameworks
+
+We've created components for popular libraries like React, VueJS, React Native. You can head over to official GitHub Repo to know more.
+
+#### Line Style
+- For React: https://github.com/Iconscout/react-unicons
+- For VueJS: https://github.com/Iconscout/vue-unicons
+- For React Native: https://github.com/Iconscout/react-native-unicons
+
+#### Solid Style
+- For React: https://github.com/Iconscout/react-unicons-solid
+- For VueJS: https://github.com/Iconscout/vue-unicons-solid
+
+#### Monochrome Style
+- For React: https://github.com/Iconscout/react-unicons-monochrome
+
 ### More ways (Community supported)
 - [Vue-unicons](https://github.com/antonreshetov/vue-unicons) by [Anton Reshetov](https://github.com/antonreshetov)
 
 ## Roadmap
-- [ ] Make React Components
-- [ ] Adding Brand Icons
-- [ ] Designing Solid Style
+- [x] Make React Components
+- [x] Adding Brand Icons
+- [x] Designing Solid Style
 - [ ] Designing Thin-line Style
 - [ ] Support for CSS Animations
 - [ ] Make SVG Sprite in which user can control different attributes such as stroke, fill, width, height and more.
