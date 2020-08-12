@@ -1,83 +1,69 @@
-[class^="uil-"]:before,
-[class*=" uil-"]:before {
-  font-family: "unicons";
+[class^="{CSS_PREFIX}-"]:before,
+[class*=" {CSS_PREFIX}-"]:before {
+  font-family: "unicons-{STYLE}";
   font-style: normal;
   font-weight: normal;
   speak: none;
 
   display: inline-block;
   text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.2em;
-  text-align: center;
-  /* opacity: .8; */
 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
 
   /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
-
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: 0.2em;
-
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
+  line-height: 1;
 
   /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
 /* Flip and Rotate */
 
-[class*="uil-"].flip-horizontal:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal:before {
   transform: scaleX(-1);
 }
-[class*="uil-"].flip-horizontal.rotate-90:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.rotate-90:before {
   transform: rotate(90deg) scaleX(-1);
 }
-[class*="uil-"].flip-horizontal.rotate-180:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.rotate-180:before {
   transform: rotate(180deg) scaleX(-1);
 }
-[class*="uil-"].flip-horizontal.rotate-270:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.rotate-270:before {
   transform: rotate(270deg) scaleX(-1);
 }
-[class*="uil-"].flip-horizontal.flip-vertical:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.flip-vertical:before {
   transform: scale(-1);
 }
-[class*="uil-"].flip-horizontal.flip-vertical.rotate-90:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.flip-vertical.rotate-90:before {
   transform: rotate(90deg) scale(-1);
 }
-[class*="uil-"].flip-horizontal.flip-vertical.rotate-180:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.flip-vertical.rotate-180:before {
   transform: rotate(180deg) scale(-1);
 }
-[class*="uil-"].flip-horizontal.flip-vertical.rotate-270:before {
+[class*="{CSS_PREFIX}-"].flip-horizontal.flip-vertical.rotate-270:before {
   transform: rotate(270deg) scale(-1);
 }
-[class*="uil-"].flip-vertical:before {
+[class*="{CSS_PREFIX}-"].flip-vertical:before {
   transform: scaleY(-1);
 }
-[class*="uil-"].flip-vertical.rotate-90:before {
+[class*="{CSS_PREFIX}-"].flip-vertical.rotate-90:before {
   transform: rotate(90deg) scaleY(-1);
 }
-[class*="uil-"].flip-vertical.rotate-180:before {
+[class*="{CSS_PREFIX}-"].flip-vertical.rotate-180:before {
   transform: rotate(180deg) scaleY(-1);
 }
-[class*="uil-"].flip-vertical.rotate-270:before {
+[class*="{CSS_PREFIX}-"].flip-vertical.rotate-270:before {
   transform: rotate(270deg) scaleY(-1);
 }
-[class*="uil-"].rotate-90:before {
+[class*="{CSS_PREFIX}-"].rotate-90:before {
   transform: rotate(90deg);
 }
-[class*="uil-"].rotate-180:before {
+[class*="{CSS_PREFIX}-"].rotate-180:before {
   transform: rotate(180deg);
 }
-[class*="uil-"].rotate-270:before {
+[class*="{CSS_PREFIX}-"].rotate-270:before {
   transform: rotate(270deg);
 }

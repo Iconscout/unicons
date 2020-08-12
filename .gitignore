@@ -2,6 +2,7 @@ node_modules
 
 # Env files
 .env
+.npmrc
 
 # Fontello Build Files
 dist/
@@ -14,3 +15,5 @@ fonts/*
 script/*
 sprite/*
 css/unicons*
+css/line.css
+css/solid.css
