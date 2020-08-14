@@ -4,7 +4,7 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches: 
-      - 'release-*'
+      - 'release-try-*'
 
 jobs:
   publish-npm:
