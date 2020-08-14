@@ -18,7 +18,7 @@ glob(sourcePath, (err, files) => {
 
   const allFilesJSON = {
     ...allFilesJSONArray[0],
-    name: 'unicons'
+    name: `unicons-${process.env.STYLE}`
   }
 
   allFilesJSONArray.forEach(j => {
