@@ -34,8 +34,6 @@ jobs:
       #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     DEST_DIR: "release-pro/${{ steps.extract_version.outputs.VERSION }}"
-      - name: Set Gemfury Config
-        run: printf "@iconscout:registry=https://npm-proxy.fury.io/iconscout/" > ~/.npmrc
       - name: Publish to Gemfury
         uses: primer/publish@v2.0.0
         env:
