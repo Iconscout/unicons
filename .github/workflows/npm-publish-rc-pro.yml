@@ -35,6 +35,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           DEST_DIR: "release-pro/${{ steps.extract_version.outputs.VERSION }}"
       - name: Publish to Gemfury
-        run: printf "@iconscout:registry=https://npm-proxy.fury.io/iconscout/\n//npm-proxy.fury.io/iconscout/:_authToken=${NPM_TOKEN}" > ~/.npmrc && npm publish
+        uses: primer/publish@v2.0.0
         env:
-          NPM_TOKEN: ${{ secrets.FURY_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.FURY_AUTH_TOKEN }}
+          args: '-- --registry=https://npm-proxy.fury.io/iconscout/'
