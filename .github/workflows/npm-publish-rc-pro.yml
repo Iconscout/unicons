@@ -39,4 +39,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.FURY_AUTH_TOKEN }}
-          args: '--dry-run'
+          args: '--dry-run -- --registry=https://npm-proxy.fury.io/iconscout'
