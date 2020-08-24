@@ -1,6 +1,6 @@
 {
   "name": "@iconscout/unicons",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "font:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
@@ -50,7 +50,7 @@
     "fontello-cli": "^0.5.0",
     "fs-plus": "^3.1.1",
     "glob": "^7.1.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "parse-svg-path": "^0.1.2",
     "scale-svg-path": "0.0.1",
     "serialize-svg-path": "^0.1.0",
