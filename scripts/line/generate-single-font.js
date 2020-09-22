@@ -4,7 +4,7 @@ const fs = require('fs-plus')
 const fontello = require('fontello-cli/lib/fontello')
 const sourcePath = path.join(process.cwd(), 'dist/config/*.json')
 const targetPath = path.join(process.cwd(), 'dist/config.json')
-const fontsPath = path.join(process.cwd(), `dist/fonts/${process.env.STYLE}`)
+const fontsPath = path.join(process.cwd(), `fonts/${process.env.STYLE}`)
 const cssTempPath = path.join(process.cwd(), 'dist/')
 
 if (!fs.existsSync(fontsPath)) {
