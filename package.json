@@ -12,7 +12,8 @@
     "monochrome:build": "npm run monochrome:download && npm run monochrome:build-script",
     "monochrome:build-script": "webpack",
     "monochrome:download": "node scripts/monochrome/download.js",
-    "solid:build": "cross-env STYLE=solid CSS_PREFIX=uis npm run font:build"
+    "solid:build": "cross-env STYLE=solid CSS_PREFIX=uis npm run font:build",
+    "update-json": "node scripts/update-json.js"
   },
   "repository": {
     "type": "git",
