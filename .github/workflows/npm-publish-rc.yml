@@ -3,7 +3,7 @@ name: Publish Icons to NPM RC
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches: 
+    branches:
       - 'release-*'
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
-          RELEASE_DIR: "release"
+          RELEASE_DIR: 'release'
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1
         with:
@@ -38,14 +38,9 @@ jobs:
           AWS_S3_BUCKET: 'unicons.iconscout.com'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          DEST_DIR: "release/${{ steps.extract_version.outputs.VERSION }}"
+          DEST_DIR: 'release/${{ steps.extract_version.outputs.VERSION }}'
       - name: Publish to NPM
         uses: primer/publish@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - name: Upload Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: fonts
-          path: dist/fonts
