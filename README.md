@@ -25,6 +25,28 @@ npm install --save @iconscout/unicons
 ### Using as an SVG
 If you're a designer then it's always great to have SVG files. You can download SVGs from [Official Unicons Website](https://iconscout.com/unicons) or [download Icondrop](https://iconscout.com/icondrop) to access these icons right into Sketch, Adobe Xd, Adobe Illustrator, and many more.
 
+### Using in Flutter Framework
+There's a Flutter package created by [Pedro Lemos](https://github.com/pedrolemoz), avaliable in [pub.dev](https://pub.dev/packages/unicons), which can be easily used in your project.
+
+Just add the dependency in your `pubspec.yaml` file as following:
+
+```yaml
+dependencies:
+  unicons: ^1.0.0+2
+```
+Then, run the command above:
+
+```bash
+flutter pub get
+```
+Alternatively, your editor might support `flutter pub get`. Check the docs for your editor to learn more.
+
+Now, in your Dart code, import the package:
+
+```dart
+import 'package:unicons/unicons.dart';
+```
+
 ### Use with JS Frameworks
 
 We've created components for popular libraries like React, VueJS, React Native. You can head over to official GitHub Repo to know more.
