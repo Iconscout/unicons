@@ -13,7 +13,12 @@ jobs:
       - name: Extract Version
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-      - uses: actions/checkout@v1
+      - if: github.event_name == 'push' 
+        uses: actions/checkout@v2
+      - if: github.event_name == 'pull_request' 
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v1
         with:
           node-version: 10.16.3
