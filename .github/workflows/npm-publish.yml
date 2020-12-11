@@ -12,12 +12,7 @@ jobs:
       - name: Extract Version
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-      - if: github.event_name == 'push' 
-        uses: actions/checkout@v2
-      - if: github.event_name == 'pull_request' 
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 10.16.3
@@ -28,11 +23,6 @@ jobs:
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: Updated Icons
       - name: Publish to CDN
         uses: jakejarvis/s3-sync-action@master
         with:
