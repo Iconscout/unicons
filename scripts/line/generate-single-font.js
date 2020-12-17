@@ -31,7 +31,7 @@ glob(sourcePath, (err, files) => {
   // Remove Fontello Session
   const fontelloSession = path.join(process.cwd(), '.fontello-session')
   if (fs.existsSync(fontelloSession)) {
-    fs.unlinkSync()
+    fs.unlinkSync(fontelloSession)
   }
 
   fontello.install({
