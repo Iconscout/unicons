@@ -28,6 +28,12 @@ glob(sourcePath, (err, files) => {
   console.log(`Merging total ${allFilesJSONArray.length} configs.`)
   fs.writeFileSync(targetPath, JSON.stringify(allFilesJSON), 'utf-8')
 
+  // Remove Fontello Session
+  const fontelloSession = path.join(process.cwd(), '.fontello-session')
+  if (fs.existsSync(fontelloSession)) {
+    fs.unlinkSync(fontelloSession)
+  }
+
   fontello.install({
     config: targetPath,
     css: cssTempPath,

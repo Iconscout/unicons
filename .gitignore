@@ -5,6 +5,7 @@ node_modules
 .npmrc
 
 # Fontello Build Files
+.fontello-session
 dist/
 fontello-*
 config.json
