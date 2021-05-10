@@ -1,0 +1,237 @@
+@font-face {
+  font-family: 'unicons-thinline';
+  src: url('../fonts/thinline/unicons-0.eot');
+  src: url('../fonts/thinline/unicons-0.eot#iefix') format('embedded-opentype'),
+    url('../fonts/thinline/unicons-0.woff2') format('woff2'),
+    url('../fonts/thinline/unicons-0.woff') format('woff'),
+    url('../fonts/thinline/unicons-0.ttf') format('truetype'),
+    url('../fonts/thinline/unicons-0.svg#unicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+E800-E833;
+}
+[class^='uit-']:before,
+[class*=' uit-']:before {
+  font-family: 'unicons-thinline';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+
+  /* For safety - reset parent styles, that can break glyph codes */
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Flip and Rotate */
+
+[class*='uit-'].flip-horizontal:before {
+  transform: scaleX(-1);
+}
+[class*='uit-'].flip-horizontal.rotate-90:before {
+  transform: rotate(90deg) scaleX(-1);
+}
+[class*='uit-'].flip-horizontal.rotate-180:before {
+  transform: rotate(180deg) scaleX(-1);
+}
+[class*='uit-'].flip-horizontal.rotate-270:before {
+  transform: rotate(270deg) scaleX(-1);
+}
+[class*='uit-'].flip-horizontal.flip-vertical:before {
+  transform: scale(-1);
+}
+[class*='uit-'].flip-horizontal.flip-vertical.rotate-90:before {
+  transform: rotate(90deg) scale(-1);
+}
+[class*='uit-'].flip-horizontal.flip-vertical.rotate-180:before {
+  transform: rotate(180deg) scale(-1);
+}
+[class*='uit-'].flip-horizontal.flip-vertical.rotate-270:before {
+  transform: rotate(270deg) scale(-1);
+}
+[class*='uit-'].flip-vertical:before {
+  transform: scaleY(-1);
+}
+[class*='uit-'].flip-vertical.rotate-90:before {
+  transform: rotate(90deg) scaleY(-1);
+}
+[class*='uit-'].flip-vertical.rotate-180:before {
+  transform: rotate(180deg) scaleY(-1);
+}
+[class*='uit-'].flip-vertical.rotate-270:before {
+  transform: rotate(270deg) scaleY(-1);
+}
+[class*='uit-'].rotate-90:before {
+  transform: rotate(90deg);
+}
+[class*='uit-'].rotate-180:before {
+  transform: rotate(180deg);
+}
+[class*='uit-'].rotate-270:before {
+  transform: rotate(270deg);
+}
+.uit-clock-eight:before {
+  content: '\e800';
+}
+.uit-laptop:before {
+  content: '\e801';
+}
+.uit-head-side-mask:before {
+  content: '\e802';
+}
+.uit-stopwatch:before {
+  content: '\e803';
+}
+.uit-clock:before {
+  content: '\e804';
+}
+.uit-mouse-alt-2:before {
+  content: '\e805';
+}
+.uit-shield-exclamation:before {
+  content: '\e806';
+}
+.uit-print:before {
+  content: '\e807';
+}
+.uit-web-grid-alt:before {
+  content: '\e808';
+}
+.uit-shield-check:before {
+  content: '\e809';
+}
+.uit-clock-two:before {
+  content: '\e80a';
+}
+.uit-clock-three:before {
+  content: '\e80b';
+}
+.uit-shield:before {
+  content: '\e80c';
+}
+.uit-clock-nine:before {
+  content: '\e80d';
+}
+.uit-user-arrows:before {
+  content: '\e80e';
+}
+.uit-circuit:before {
+  content: '\e80f';
+}
+.uit-clock-five:before {
+  content: '\e810';
+}
+.uit-stethoscope-alt:before {
+  content: '\e811';
+}
+.uit-window-grid:before {
+  content: '\e812';
+}
+.uit-store-slash:before {
+  content: '\e813';
+}
+.uit-social-distancing:before {
+  content: '\e814';
+}
+.uit-clinic-medical:before {
+  content: '\e815';
+}
+.uit-clock-seven:before {
+  content: '\e816';
+}
+.uit-sanitizer-alt:before {
+  content: '\e817';
+}
+.uit-head-side:before {
+  content: '\e818';
+}
+.uit-shield-question:before {
+  content: '\e819';
+}
+.uit-columns:before {
+  content: '\e81a';
+}
+.uit-hospital-symbol:before {
+  content: '\e81b';
+}
+.uit-polygon:before {
+  content: '\e81c';
+}
+.uit-covid-19:before {
+  content: '\e81d';
+}
+.uit-pentagon:before {
+  content: '\e81e';
+}
+.uit-shield-plus:before {
+  content: '\e81f';
+}
+.uit-web-section:before {
+  content: '\e820';
+}
+.uit-triangle:before {
+  content: '\e821';
+}
+.uit-microscope:before {
+  content: '\e822';
+}
+.uit-window-maximize:before {
+  content: '\e823';
+}
+.uit-modem:before {
+  content: '\e824';
+}
+.uit-window-section:before {
+  content: '\e825';
+}
+.uit-grid:before {
+  content: '\e826';
+}
+.uit-hospital-square-sign:before {
+  content: '\e827';
+}
+.uit-hospital:before {
+  content: '\e828';
+}
+.uit-star:before {
+  content: '\e829';
+}
+.uit-web-section-alt:before {
+  content: '\e82a';
+}
+.uit-clock-ten:before {
+  content: '\e82b';
+}
+.uit-toilet-paper:before {
+  content: '\e82c';
+}
+.uit-comment-dots:before {
+  content: '\e82d';
+}
+.uit-stethoscope:before {
+  content: '\e82e';
+}
+.uit-web-grid:before {
+  content: '\e82f';
+}
+.uit-head-side-cough:before {
+  content: '\e830';
+}
+.uit-house-user:before {
+  content: '\e831';
+}
+.uit-shield-slash:before {
+  content: '\e832';
+}
+.uit-sanitizer:before {
+  content: '\e833';
+}
