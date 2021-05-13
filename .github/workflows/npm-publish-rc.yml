@@ -13,9 +13,9 @@ jobs:
       - name: Extract Version
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-      - if: github.event_name == 'push' 
+      - if: github.event_name == 'push'
         uses: actions/checkout@v2
-      - if: github.event_name == 'pull_request' 
+      - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 10.16.3
       - name: Download & Build Icons
-        run: npm ci --progress=false && npm run line:build && npm run solid:build && npm run monochrome:build
+        run: npm ci --progress=false && npm run line:build && npm run solid:build && npm run thinline:build && npm run monochrome:build
         env:
           CI_COMMIT_REF_NAME: ${{ steps.extract_version.outputs.VERSION }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
