@@ -23,6 +23,7 @@ jobs:
           CI_COMMIT_REF_NAME: ${{ steps.extract_version.outputs.VERSION }}
           API_DOWNLOAD_LINE: ${{ secrets.API_DOWNLOAD_LINE }}
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID_PRO }}
+          API_DOWNLOAD_THINLINE: ${{ secrets.API_DOWNLOAD_THINLINE_PRO }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME_PRO }}
           RELEASE_DIR: 'release-pro'
       - name: Publish to CDN
