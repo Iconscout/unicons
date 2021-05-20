@@ -6,30 +6,22 @@ on:
       tags:
         - '*'
       branches:
-        - 'releases/**'
+        - 'releases/**' #temporary
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Get Current tag
-      - name: 'Get Curent tag'
-        id: currenttag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
-        with:
-          fallback: 1.0.0 
       # React Line Style
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons
-        uses: akandeBolaji/change-dependency-package@v0.0.2
+        uses: ./.github/actions/update-dep-version
         env:
           API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
           package_name: unicons
-          package_version: ${{ steps.currenttag.outputs.tag }}
           destination_repo: Iconscout/react-unicons
           destination_base_branch: master
-          destination_head_branch: unicons-${{ steps.currenttag.outputs.tag }}-update
           user_email: tarunmangukiya@hotmail.com
           user_name: tarunmangukiya
           pull_request_reviewers: tschaefermedia
