@@ -6,7 +6,7 @@ on:
       tags:
         - '*'
       branches:
-        - release-*
+        - 'release.*'
 
 jobs:
   build:
