@@ -57,7 +57,7 @@ then
                -b "release-$next_version"\
                -B $INPUT_DESTINATION_BASE_BRANCH \
                -H "release-$next_version"\
-               -r $PULL_REQUEST_REVIEWERS
+                $PULL_REQUEST_REVIEWERS
 else
   echo "No changes detected"
 fi
