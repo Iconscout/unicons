@@ -40,7 +40,6 @@ raw_version=`jq .version package.json`
 version=`echo $raw_version | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
 next_version=`echo $version | awk -F"." '{print $1 FS $2 FS}'`$((`echo $version | awk -F"." '{print $NF}'` + 1))
 sed -i -e "s/\(version\":\).*/\1 \"^$next_version\",/" package.json
-rm package.json-e
 npm ci --progress=false && npm i @iconscout/unicons@latest && npm run generate
 
 git checkout -b "release-$next_version"
