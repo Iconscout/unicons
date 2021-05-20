@@ -17,6 +17,8 @@ jobs:
       - name: 'Get Curent tag'
         id: currenttag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0 
       # React Line Style
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons
         uses: akandeBolaji/change-dependency-package@v0.0.2
