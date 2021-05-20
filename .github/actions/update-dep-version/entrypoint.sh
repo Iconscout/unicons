@@ -51,7 +51,7 @@ then
   echo "Pushing git commit"
   git push -u origin HEAD:"release-$next_version"
   echo "Creating a pull request"
-  gh pr create -t "Release $next_version"
+  gh pr create -t "Release $next_version"\
                -b "release-$next_version"\
                -B $INPUT_DESTINATION_BASE_BRANCH \
                -H "release-$next_version"\
