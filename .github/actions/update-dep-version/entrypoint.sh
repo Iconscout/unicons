@@ -3,7 +3,7 @@
 set -e
 set -x
 
-if [ -z "$INPUT_PACKAGE_NAME" ] || [ -z "$INPUT_PACKAGE_VERSION"]
+if [ -z "$INPUT_PACKAGE_NAME" ]
 then
   echo "Package name and version must be defined"
   return -1
