@@ -1,0 +1,27 @@
+name: Create Pull requests on dependent components for new tag or release
+
+# Controls when the action will run. 
+on:
+    push:
+      tags:
+        - '*'
+      branches:
+        - 'releases/**' #temporary
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # React Line Style
+      - name: Create Pull Request on https://github.com/Iconscout/react-unicons
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/react-unicons
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
