@@ -80,6 +80,7 @@ We've created components for popular libraries like React, VueJS, React Native. 
 ### More ways (Community supported)
 
 - [Vue-unicons](https://github.com/antonreshetov/vue-unicons) by [Anton Reshetov](https://github.com/antonreshetov)
+- [react-native-unicons](https://www.npmjs.com/package/react-native-unicons) with typescript support
 
 ## Roadmap
 
