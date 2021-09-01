@@ -5,8 +5,8 @@ on:
     push:
       tags:
         - '*'
-      branches:
-        - 'releases/**' #temporary
+      release:
+        types: [published]
 
 jobs:
   build:
@@ -21,6 +21,66 @@ jobs:
         with:
           package_name: unicons
           destination_repo: Iconscout/react-unicons
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
+      # VueJs Line Style
+      - name: Create Pull Request on https://github.com/Iconscout/vue-unicons
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/vue-unicons
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
+      # React Native Line Style
+      - name: Create Pull Request on https://github.com/Iconscout/react-native-unicons
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/react-native-unicons
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
+      # React Solid Style
+      - name: Create Pull Request on https://github.com/Iconscout/react-unicons-solid
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/react-unicons-solid
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
+      # Vue Solid Style
+      - name: Create Pull Request on https://github.com/Iconscout/vue-unicons-solid
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/vue-unicons-solid
+          destination_base_branch: master
+          user_email: tarunmangukiya@hotmail.com
+          user_name: tarunmangukiya
+          pull_request_reviewers: tschaefermedia
+      # React Monochrome Style
+      - name: Create Pull Request on https://github.com/Iconscout/react-unicons-monochrome
+        uses: ./.github/actions/update-dep-version
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          package_name: unicons
+          destination_repo: Iconscout/react-unicons-monochrome
           destination_base_branch: master
           user_email: tarunmangukiya@hotmail.com
           user_name: tarunmangukiya
