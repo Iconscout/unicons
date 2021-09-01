@@ -1,0 +1,35 @@
+name: 'Pull Request another repository for update dependency'
+description: 'Used for pull request a change in dependency version to another repository'
+inputs:
+  package_name:
+    description: 'name of package'
+    required: true
+  destination_repo:
+    description: 'Destination repository'
+    required: true
+  user_email:
+    description: 'Email for the git commit'
+    required: true
+  user_name:
+    description: 'GitHub username for the commit'
+    required: true
+  destination_base_branch:
+    description: 'The branch into which you want your code merged.'
+    required: false
+    default: "main"
+  pull_request_reviewers:
+    description: 'Pull request reviewers users'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.package-name }}
+    - ${{ inputs.destination-repo }}
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}
+    - ${{ inputs.destination-base-branch }}
+    - ${{ inputs.pull-request-reviewers }}
+branding:
+  icon: 'git-commit'
+  color: 'green'
