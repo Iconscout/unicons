@@ -1,5 +1,6 @@
-const SVG_URL_BASE =
-  `https://unicons.iconscout.com/${process.env.RELEASE_DIR || 'release'}/${process.env.CI_COMMIT_REF_NAME}/svg/monochrome/`;
+const SVG_URL_BASE = `https://unicons.iconscout.com/${
+  process.env.RELEASE_DIR || 'release'
+}/${process.env.CI_COMMIT_REF_NAME}/svg/monochrome/`
 const iconPrefix = 'uim-'
 
 // Add Unicons Window
@@ -9,8 +10,9 @@ window.Unicons.DEBUG = window.Unicons.DEBUG || false
 const apply = (element) => {
   element.classList.forEach((className) => {
     if (className.includes(iconPrefix)) {
-      const iconName = className.toLocaleLowerCase().replace(iconPrefix, '')
-      fetchIconsAndReplace(iconName)
+      fetchIconsAndReplace(
+        className.toLocaleLowerCase().replace(iconPrefix, ''),
+      )
     }
   })
 }
@@ -57,9 +59,9 @@ const replaceAllIcons = () => {
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i]
     element.classList.forEach((className) => {
-      if (className.indexOf(iconPrefix) > -1) {
+      if (className.includes(iconPrefix)) {
         const iconName = className.toLocaleLowerCase().replace(iconPrefix, '')
-        if (iconsToFetch.indexOf(iconName) === -1) {
+        if (!iconsToFetch.includes(iconName)) {
           fetchIconsAndReplace(iconName)
         }
       }
@@ -68,7 +70,9 @@ const replaceAllIcons = () => {
 }
 
 const watch = () => {
-  console.log('watch started')
+  if (window.Unicons.DEBUG) {
+    console.log('Monochrome watcher started')
+  }
   const insertionQ = require('insertion-query')
   insertionQ('.uim').every((element) => {
     apply(element)
@@ -78,7 +82,7 @@ const watch = () => {
 
 const init = () => {
   if (window.Unicons.DEBUG) {
-    console.log('Monochrome initiated')    
+    console.log('Monochrome initiated')
   }
   replaceAllIcons()
   watch()
