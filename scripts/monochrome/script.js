@@ -63,6 +63,7 @@ const replaceAllIcons = () => {
         const iconName = className.toLocaleLowerCase().replace(iconPrefix, '')
         if (!iconsToFetch.includes(iconName)) {
           fetchIconsAndReplace(iconName)
+          iconsToFetch.push(iconName)
         }
       }
     })
@@ -78,20 +79,20 @@ const watch = () => {
     apply(element)
     return element
   })
-}
-
-const init = () => {
-  if (window.Unicons.DEBUG) {
-    console.log('Monochrome initiated')
-  }
-  replaceAllIcons()
-  watch()
   window.Unicons.WATCHER = true
 }
 
-if (!window.Unicons.WATCHER) {
-  init()
+const init = () => {
+  replaceAllIcons()
+  if (!window.Unicons.WATCHER) {
+    watch()
+  }
+  if (window.Unicons.DEBUG) {
+    console.log('Monochrome initiated')
+  }
 }
+
+window.onload = init
 window.Unicons.refresh = replaceAllIcons
 
 // Append CSS
