@@ -71,15 +71,15 @@ const replaceAllIcons = () => {
 }
 
 const watch = () => {
-  if (window.Unicons.DEBUG) {
-    console.log('Monochrome watcher started')
-  }
   const insertionQ = require('insertion-query')
   insertionQ('.uim').every((element) => {
     apply(element)
     return element
   })
   window.Unicons.WATCHER = true
+  if (window.Unicons.DEBUG) {
+    console.log('Monochrome watcher started')
+  }
 }
 
 const init = () => {
