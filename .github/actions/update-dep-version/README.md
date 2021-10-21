@@ -16,7 +16,7 @@ This GitHub Action modifies a package dependency version from the current versio
         - name: create pull request
           uses: ./.github/actions/update-dep-version
           env:
-            API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            API_TOKEN_GITHUB: ${{ secrets.GH_AUTH_TOKEN }}
           with:
             package_name: package-name
             destination_repo: user-name/repository-name
