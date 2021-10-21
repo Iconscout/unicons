@@ -17,7 +17,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/react-unicons
@@ -29,7 +29,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/vue-unicons
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/vue-unicons
@@ -41,7 +41,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/react-native-unicons
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/react-native-unicons
@@ -53,7 +53,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons-solid
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/react-unicons-solid
@@ -65,7 +65,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/vue-unicons-solid
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/vue-unicons-solid
@@ -77,7 +77,7 @@ jobs:
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons-monochrome
         uses: ./.github/actions/update-dep-version
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           package_name: unicons
           destination_repo: Iconscout/react-unicons-monochrome

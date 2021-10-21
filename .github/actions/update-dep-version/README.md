@@ -13,17 +13,14 @@ This GitHub Action modifies a package dependency version from the current versio
         - name: Checkout
           uses: actions/checkout@v2
 
-        - name: Create pull request
-          uses: akandeBolaji/change-dependency-package@v1
+        - name: create pull request
+          uses: ./.github/actions/update-dep-version
           env:
             API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           with:
-            package_name: 'package-name'
-            destination_repo: 'user-name/repository-name'
-            destination_base_branch: 'branch-name'
-            user_email: 'user-name@bolaji.com'
-            user_name: 'user-name'
-            pull_request_reviewers: 'reviewers'
+            package_name: package-name
+            destination_repo: user-name/repository-name
+            destination_base_branch: master
 
 ## Variables
 * package_name: The name of package
