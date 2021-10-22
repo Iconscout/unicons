@@ -92,7 +92,7 @@ const init = () => {
   }
 }
 
-window.onload = init
+init()
 window.Unicons.refresh = replaceAllIcons
 
 // Append CSS
