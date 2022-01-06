@@ -1,142 +1,105 @@
 module.exports = {
-  comment: "This is the settings file for Iconscout SVG Compression.",
-  pretty: true,
-  indent: 2,
+  js2svg: {
+    commentStart: 'This is the settings file for Iconscout SVG Compression.',
+    pretty: true,
+    indent: 2,
+  },
   floatPrecision: 3,
   plugins: [
+    'removeDoctype',
+    'removeXMLProcInst',
+    'removeComments',
+    'removeMetadata',
     {
-      removeDoctype: true
+      name: 'removeXMLNS',
+      active: false,
+    },
+    'removeEditorsNSData',
+    {
+      name: 'cleanupAttrs',
+      active: false,
     },
     {
-      removeXMLProcInst: true
+      name: 'inlineStyles',
+      active: true,
+      params: {
+        onlyMatchedOnce: false,
+      },
+    },
+    'minifyStyles',
+    'convertStyleToAttrs',
+    'cleanupIDs',
+    {
+      name: 'prefixIds',
+      active: false,
+    },
+    'removeRasterImages',
+    'removeUselessDefs',
+    'cleanupNumericValues',
+    'cleanupListOfValues',
+    'convertColors',
+    'removeUnknownsAndDefaults',
+    'removeNonInheritableGroupAttrs',
+    'removeUselessStrokeAndFill',
+    {
+      name: 'removeViewBox',
+      active: false,
     },
     {
-      removeComments: true
+      name: 'cleanupEnableBackground',
+      active: false,
     },
     {
-      removeMetadata: true
+      name: 'removeHiddenElems',
+      active: false,
+    },
+    'removeEmptyText',
+    {
+      name: 'convertShapeToPath',
+      active: false,
     },
     {
-      removeXMLNS: false
+      name: 'moveElemsAttrsToGroup',
+      active: false,
     },
     {
-      removeEditorsNSData: true
+      name: 'moveElemsAttrsToGroup',
+      active: false,
+    },
+    'collapseGroups',
+    {
+      name: 'convertPathData',
+      active: false,
+    },
+    'convertTransform',
+    'removeEmptyAttrs',
+    'removeEmptyContainers',
+    'mergePaths',
+    'removeUnusedNS',
+    'sortAttrs',
+    'removeTitle',
+    'removeDesc',
+    {
+      name: 'removeDimensions',
+      active: false,
     },
     {
-      cleanupAttrs: false
+      name: 'removeAttrs',
+      active: false,
     },
     {
-      inlineStyles: {
-        onlyMatchedOnce: false
-      }
+      name: 'removeElementsByAttr',
+      active: false,
     },
     {
-      minifyStyles: true
+      name: 'addClassesToSVGElement',
+      active: false,
     },
+    'removeStyleElement',
+    'removeScriptElement',
     {
-      convertStyleToAttrs: true
+      name: 'addAttributesToSVGElement',
+      active: false,
     },
-    {
-      cleanupIDs: true
-    },
-    {
-      prefixIds: false
-    },
-    {
-      removeRasterImages: true
-    },
-    {
-      removeUselessDefs: true
-    },
-    {
-      cleanupNumericValues: true
-    },
-    {
-      cleanupListOfValues: true
-    },
-    {
-      convertColors: true
-    },
-    {
-      removeUnknownsAndDefaults: true
-    },
-    {
-      removeNonInheritableGroupAttrs: true
-    },
-    {
-      removeUselessStrokeAndFill: true
-    },
-    {
-      removeViewBox: false
-    },
-    {
-      cleanupEnableBackground: false
-    },
-    {
-      removeHiddenElems: false
-    },
-    {
-      removeEmptyText: true
-    },
-    {
-      convertShapeToPath: false
-    },
-    {
-      moveElemsAttrsToGroup: false
-    },
-    {
-      moveGroupAttrsToElems: false
-    },
-    {
-      collapseGroups: true
-    },
-    {
-      convertPathData: false
-    },
-    {
-      convertTransform: true
-    },
-    {
-      removeEmptyAttrs: true
-    },
-    {
-      removeEmptyContainers: true
-    },
-    {
-      mergePaths: true
-    },
-    {
-      removeUnusedNS: true
-    },
-    {
-      sortAttrs: true
-    },
-    {
-      removeTitle: true
-    },
-    {
-      removeDesc: true
-    },
-    {
-      removeDimensions: false
-    },
-    {
-      removeAttrs: false
-    },
-    {
-      removeElementsByAttr: false
-    },
-    {
-      addClassesToSVGElement: false
-    },
-    {
-      removeStyleElement: true
-    },
-    {
-      removeScriptElement: true
-    },
-    {
-      addAttributesToSVGElement: false
-    }
-  ]
+  ],
 }
