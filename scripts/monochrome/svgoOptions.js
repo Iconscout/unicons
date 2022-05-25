@@ -1,142 +1,142 @@
 module.exports = {
-  comment: "This is the settings file for Iconscout SVG Compression.",
+  comment: 'This is the settings file for IconScout SVG Compression.',
   pretty: true,
   indent: 2,
   floatPrecision: 3,
   plugins: [
     {
-      removeDoctype: true
+      removeDoctype: true,
     },
     {
-      removeXMLProcInst: true
+      removeXMLProcInst: true,
     },
     {
-      removeComments: true
+      removeComments: true,
     },
     {
-      removeMetadata: true
+      removeMetadata: true,
     },
     {
-      removeXMLNS: false
+      removeXMLNS: false,
     },
     {
-      removeEditorsNSData: true
+      removeEditorsNSData: true,
     },
     {
-      cleanupAttrs: false
+      cleanupAttrs: false,
     },
     {
       inlineStyles: {
-        onlyMatchedOnce: false
-      }
+        onlyMatchedOnce: false,
+      },
     },
     {
-      minifyStyles: true
+      minifyStyles: true,
     },
     {
-      convertStyleToAttrs: true
+      convertStyleToAttrs: true,
     },
     {
-      cleanupIDs: true
+      cleanupIDs: true,
     },
     {
-      prefixIds: false
+      prefixIds: false,
     },
     {
-      removeRasterImages: true
+      removeRasterImages: true,
     },
     {
-      removeUselessDefs: true
+      removeUselessDefs: true,
     },
     {
-      cleanupNumericValues: true
+      cleanupNumericValues: true,
     },
     {
-      cleanupListOfValues: true
+      cleanupListOfValues: true,
     },
     {
-      convertColors: true
+      convertColors: true,
     },
     {
-      removeUnknownsAndDefaults: true
+      removeUnknownsAndDefaults: true,
     },
     {
-      removeNonInheritableGroupAttrs: true
+      removeNonInheritableGroupAttrs: true,
     },
     {
-      removeUselessStrokeAndFill: true
+      removeUselessStrokeAndFill: true,
     },
     {
-      removeViewBox: false
+      removeViewBox: false,
     },
     {
-      cleanupEnableBackground: false
+      cleanupEnableBackground: false,
     },
     {
-      removeHiddenElems: false
+      removeHiddenElems: false,
     },
     {
-      removeEmptyText: true
+      removeEmptyText: true,
     },
     {
-      convertShapeToPath: false
+      convertShapeToPath: false,
     },
     {
-      moveElemsAttrsToGroup: false
+      moveElemsAttrsToGroup: false,
     },
     {
-      moveGroupAttrsToElems: false
+      moveGroupAttrsToElems: false,
     },
     {
-      collapseGroups: true
+      collapseGroups: true,
     },
     {
-      convertPathData: false
+      convertPathData: false,
     },
     {
-      convertTransform: true
+      convertTransform: true,
     },
     {
-      removeEmptyAttrs: true
+      removeEmptyAttrs: true,
     },
     {
-      removeEmptyContainers: true
+      removeEmptyContainers: true,
     },
     {
-      mergePaths: true
+      mergePaths: true,
     },
     {
-      removeUnusedNS: true
+      removeUnusedNS: true,
     },
     {
-      sortAttrs: true
+      sortAttrs: true,
     },
     {
-      removeTitle: true
+      removeTitle: true,
     },
     {
-      removeDesc: true
+      removeDesc: true,
     },
     {
-      removeDimensions: false
+      removeDimensions: false,
     },
     {
-      removeAttrs: false
+      removeAttrs: false,
     },
     {
-      removeElementsByAttr: false
+      removeElementsByAttr: false,
     },
     {
-      addClassesToSVGElement: false
+      addClassesToSVGElement: false,
     },
     {
-      removeStyleElement: true
+      removeStyleElement: true,
     },
     {
-      removeScriptElement: true
+      removeScriptElement: true,
     },
     {
-      addAttributesToSVGElement: false
-    }
-  ]
+      addAttributesToSVGElement: false,
+    },
+  ],
 }
