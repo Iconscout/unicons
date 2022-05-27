@@ -1,6 +1,6 @@
 # Unicons
 
-1000+ Pixel-perfect vector icons and Iconfont for your next project. These icons are designed by [Iconscout](https://iconscout.com).
+1000+ Pixel-perfect vector icons and Iconfont for your next project. These icons are designed by [IconScout](https://iconscout.com).
 
 ## Getting Started
 
@@ -96,12 +96,12 @@ We will be happy to have community support for Unicons. Feel free to fork and cr
 
 ### Icon Requests
 
-We've created a thread at [Iconscout Community](https://discuss.iconscout.com/new-topic?title=Icon%20Request:%20%3Cicon%3E&body=Hey%20there,%20%3Cicon%3E%20will%20be%20great%20fit%20for%20Unicons.%20I%20would%20love%20to%20use%20it!&category=Unicons&tags=requests) where you can request for new icons. And we'll be happy to design them in upcoming weeks.
+We've created a thread at [IconScout Community](https://discuss.iconscout.com/new-topic?title=Icon%20Request:%20%3Cicon%3E&body=Hey%20there,%20%3Cicon%3E%20will%20be%20great%20fit%20for%20Unicons.%20I%20would%20love%20to%20use%20it!&category=Unicons&tags=requests) where you can request for new icons. And we'll be happy to design them in upcoming weeks.
 
 ## License
 
-Unicons are Open Source icons and licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). You're free to use these icons in your personal and commercial project. We would love to see the attribution in your app's **about** screen, but it's not mandatory.
+Unicons are Open Source icons and licensed under [IconScout Simple License](https://iconscout.com/licenses#simple_license). You're free to use these icons in your personal and commercial project. We would love to see the attribution in your app's **about** screen, but it's not mandatory.
 
 ```html
-Unicons by <a href="https://iconscout.com/">Iconscout</a>
+Unicons by <a href="https://iconscout.com/">IconScout</a>
 ```
