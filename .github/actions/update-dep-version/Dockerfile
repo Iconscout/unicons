@@ -1,8 +1,8 @@
-FROM alpine
+FROM alpine:3.9
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache git go jq nodejs=10.16.3 npm=6.9.0 make && \
+    apk add --no-cache git go jq nodejs npm make && \
     git clone --depth=1 https://github.com/cli/cli.git gh-cli && \
     cd gh-cli && \
     make && \
