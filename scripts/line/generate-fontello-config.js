@@ -8,7 +8,12 @@ const parse = require('parse-svg-path')
 const scale = require('scale-svg-path')
 const serialize = require('serialize-svg-path')
 
-const JSONConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), `json/${process.env.STYLE}.json`), 'utf-8'))
+const JSONConfig = JSON.parse(
+  fs.readFileSync(
+    path.join(process.cwd(), `json/${process.env.STYLE}.json`),
+    'utf-8',
+  ),
+)
 const targetFileDir = path.join(process.cwd(), 'dist/config')
 
 fs.removeSync(path.join(process.cwd(), 'dist'))
@@ -16,21 +21,21 @@ fs.mkdirSync(path.join(process.cwd(), 'dist'))
 fs.mkdirSync(targetFileDir)
 
 const baseConfig = {
-  "name": `unicons-${process.env.STYLE}`,
-  "css_prefix_text": `${process.env.CSS_PREFIX}-`,
-  "css_use_suffix": false,
-  "hinting": true,
-  "units_per_em": 1000,
-  "ascent": 850,
-  "copyright": "Iconscout",
-  "glyphs": []
+  name: `unicons-${process.env.STYLE}`,
+  css_prefix_text: `${process.env.CSS_PREFIX}-`,
+  css_use_suffix: false,
+  hinting: true,
+  units_per_em: 1000,
+  ascent: 850,
+  copyright: 'IconScout',
+  glyphs: [],
 }
 
 const saveConfig = (glyphs, name, file) => {
   const config = {
     ...baseConfig,
     name,
-    glyphs
+    glyphs,
   }
 
   fs.writeFileSync(file, JSON.stringify(config), 'utf-8')
@@ -51,7 +56,7 @@ chunk(sortBy(JSONConfig, 'code'), 60).forEach((chunk, chunkIndex) => {
 
     // Get Path Content from SVG
     const $ = cheerio.load(content, {
-      xmlMode: true
+      xmlMode: true,
     })
 
     const svgPaths = $('path')
@@ -61,22 +66,20 @@ chunk(sortBy(JSONConfig, 'code'), 60).forEach((chunk, chunkIndex) => {
 
       // Resize SVG Path to 1000 width
       let path = parse(svgPath)
-      path = serialize(scale(path, 1000/24))
+      path = serialize(scale(path, 1000 / 24))
 
       if (name && name !== '') {
         configIcons.push({
-          "uid": uid,
-          "css": name,
-          "code": icon.code,
-          "src": "custom_icons",
-          "selected": true,
-          "svg": {
-            "path": path,
-            "width": 1000
+          uid: uid,
+          css: name,
+          code: icon.code,
+          src: 'custom_icons',
+          selected: true,
+          svg: {
+            path: path,
+            width: 1000,
           },
-          "search": [
-            name
-          ]
+          search: [name],
         })
       } else {
         console.log(`Skipped empty name ${filename}`)

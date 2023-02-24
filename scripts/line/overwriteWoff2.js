@@ -1,8 +1,7 @@
+const ttf2woff2 = require('ttf2woff2')
 const path = require('path')
 const fs = require('fs-plus')
 const glob = require('glob')
-
-const ttf2woff2 = require('ttf2woff2')
 
 const sourcePath = path.join(process.cwd(), `fonts/${process.env.STYLE}/*.ttf`)
 const fontsPath = path.join(process.cwd(), `fonts/${process.env.STYLE}`)
