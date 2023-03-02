@@ -8,6 +8,8 @@ RUN apk update && \
     make && \
     mv ./bin/gh /usr/local/bin/
 
+RUN npm i -g npm@6.14.15
+
 ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
