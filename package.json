@@ -1,9 +1,9 @@
 {
   "name": "@iconscout/unicons",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Ready to use font icons for your next project",
   "scripts": {
-    "font:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run line:build-sprite",
+    "font:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run overwrite-woff2 && npm run line:build-sprite",
     "line:build": "cross-env STYLE=line CSS_PREFIX=uil npm run font:build",
     "line:download": "node scripts/line/download.js",
     "line:generate": "node scripts/line/generate-fonts-css.js && node scripts/line/generate-single-font.js",
@@ -14,6 +14,7 @@
     "monochrome:download": "node scripts/monochrome/download.js",
     "solid:build": "cross-env STYLE=solid CSS_PREFIX=uis npm run font:build",
     "thinline:build": "cross-env STYLE=thinline CSS_PREFIX=uit npm run font:build",
+    "overwrite-woff2": "node scripts/line/overwriteWoff2.js",
     "update-json": "node scripts/update-json.js"
   },
   "repository": {
@@ -59,6 +60,7 @@
     "serialize-svg-path": "^0.1.0",
     "svgo": "1.1.1",
     "svgstore": "^3.0.0-2",
+    "ttf2woff2": "^5.0.0",
     "uuid": "^3.3.2"
   }
 }
