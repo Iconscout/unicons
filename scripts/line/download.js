@@ -96,6 +96,7 @@ const response = axios.get(url).then((response) => {
             : startCharCode++
 
         data.push({
+          uuid: row.uuid,
           id: row.id,
           name: name,
           svg: `svg/${process.env.STYLE}/${fileName}`,
