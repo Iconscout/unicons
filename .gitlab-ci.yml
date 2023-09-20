@@ -1,3 +1,6 @@
+variables:
+  S3_UNICONS_BUCKET: unicons-iconscout-a5996f0
+
 stages:
   - build
   - deploy
@@ -23,8 +26,8 @@ deploy:
   needs:
     - build
   script:
-    - aws s3 cp ./ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT
-    - aws s3 cp ./json/ s3://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/json/ --recursive --content-type application/json --endpoint-url $AWS_ENDPOINT
+    - aws s3 cp ./ s3://$S3_UNICONS_BUCKET/release/$CI_COMMIT_REF_NAME/ --recursive --exclude ".git/*" --exclude "node_modules/*" --exclude "build/*" --exclude ".gitlab-ci.yml" --endpoint-url $AWS_ENDPOINT
+    - aws s3 cp ./json/ s3://$S3_UNICONS_BUCKET/release/$CI_COMMIT_REF_NAME/json/ --recursive --content-type application/json --endpoint-url $AWS_ENDPOINT
   environment:
     name: production/$CI_COMMIT_REF_NAME
     url: https://unicons.iconscout.com/release/$CI_COMMIT_REF_NAME/index.html
