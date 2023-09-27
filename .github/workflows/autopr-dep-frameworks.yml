@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       # React Line Style
       - name: Create Pull Request on https://github.com/Iconscout/react-unicons
         uses: ./.github/actions/update-dep-version

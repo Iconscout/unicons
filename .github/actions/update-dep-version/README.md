@@ -11,7 +11,7 @@ This GitHub Action modifies a package dependency version from the current versio
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: create pull request
           uses: ./.github/actions/update-dep-version

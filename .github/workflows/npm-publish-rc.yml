@@ -14,12 +14,12 @@ jobs:
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - if: github.event_name == 'push'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - if: github.event_name == 'pull_request'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 14.18.1
       - name: Download & Build Icons
