@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "async": "^2.6.1",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.2",
     "cross-env": "^7.0.2",
     "fontello-cli": "^0.6.2",
