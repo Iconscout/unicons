@@ -14,10 +14,7 @@ exec(`npm view ${pkg.name} version`, async (err, out) => {
     const style = styles[index]
 
     const url = `https://unicons.iconscout.com/release-pro/v${latestVersion}/json/${style}.json`
-    const response = await axios({
-      method: 'GET',
-      url,
-    })
+    const response = await axios.get(url)
 
     const targetPath = path.join(process.cwd(), `json/${style}.json`)
     fs.writeFileSync(targetPath, JSON.stringify(response.data), 'utf-8')
