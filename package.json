@@ -57,7 +57,7 @@
     "parse-svg-path": "^0.1.2",
     "scale-svg-path": "0.0.1",
     "serialize-svg-path": "^0.1.0",
-    "svgo": "1.1.1",
+    "svgo": "3.3.2",
     "svgstore": "^3.0.0-2",
     "ttf2woff2": "^5.0.0",
     "uuid": "^3.3.2"
