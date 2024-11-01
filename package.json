@@ -1,6 +1,6 @@
 {
   "name": "@iconscout/unicons",
-  "version": "4.0.8",
+  "version": "4.1.0",
   "description": "Ready to use font icons for your next project",
   "scripts": {
     "font:build": "npm run line:download && npm run line:generate-fontello-config && npm run line:generate && npm run overwrite-woff2 && npm run line:build-sprite",
@@ -39,7 +39,6 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "babel-loader": "^8.0.6",
-    "nodemon": "^1.19.3",
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.3",
     "webpack": "^4.41.0",
@@ -47,7 +46,7 @@
   },
   "dependencies": {
     "async": "^2.6.1",
-    "axios": "^0.21.1",
+    "axios": "^1.7.7",
     "cheerio": "^1.0.0-rc.2",
     "cross-env": "^7.0.2",
     "fontello-cli": "^0.6.2",
