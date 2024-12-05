@@ -1,4 +1,4 @@
-FROM alpine
+FROM node:22.11.0-alpine
 
 RUN apk update && \
     apk upgrade && \
@@ -8,7 +8,6 @@ RUN apk update && \
     make && \
     mv ./bin/gh /usr/local/bin/
 
-RUN npm i -g npm@6.14.15
 
 ADD entrypoint.sh /entrypoint.sh
 
