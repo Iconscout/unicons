@@ -13,7 +13,7 @@ jobs:
         with:
           token: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
           fetch-depth: 0
-      - uses: butlerlogic/action-autotag@1.2.2
+      - uses: butlerlogic/action-autotag@1.1.2
         with:
           GITHUB_TOKEN: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
           tag_prefix: 'v'
