@@ -12,10 +12,10 @@ jobs:
       - name: Extract Version
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14.18.1
+          node-version: 22.11.0
       - name: Download & Build Icons
         run: npm ci --progress=false && npm run update-json && npm run line:build && npm run solid:build && npm run thinline:build && npm run monochrome:build
         env:

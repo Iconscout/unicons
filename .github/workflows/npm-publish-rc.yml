@@ -14,14 +14,14 @@ jobs:
         id: extract_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - if: github.event_name == 'push'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - if: github.event_name == 'pull_request'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14.18.1
+          node-version: 22.11.0
       - name: Download & Build Icons
         run: npm ci --progress=false && npm run line:build && npm run solid:build && npm run thinline:build && npm run monochrome:build
         env:
@@ -32,7 +32,7 @@ jobs:
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
           RELEASE_DIR: 'release'
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Updated Icons
@@ -46,7 +46,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           DEST_DIR: 'release/${{ steps.extract_version.outputs.VERSION }}'
       - name: Publish to NPM
-        uses: primer/publish@v2.0.0
+        run: npm publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
