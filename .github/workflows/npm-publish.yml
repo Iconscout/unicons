@@ -24,6 +24,7 @@ jobs:
           API_DOWNLOAD_SOLID: ${{ secrets.API_DOWNLOAD_SOLID }}
           API_DOWNLOAD_THINLINE: ${{ secrets.API_DOWNLOAD_THINLINE }}
           API_DOWNLOAD_MONOCHROME: ${{ secrets.API_DOWNLOAD_MONOCHROME }}
+          RELEASE_DIR: 'release'
       - name: Publish to CDN
         uses: jakejarvis/s3-sync-action@master
         with:
