@@ -29,7 +29,7 @@ jobs:
       - name: Publish to CDN
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --no-progress --exclude '.git/*' --exclude 'node_modules/*' --exclude 'build/*' --exclude '.github/*' --exclude '/github/workspace/node_modules/ttf2woff2/build/node_gyp_bins/python3'
+          args: --no-progress --no-follow-symlinks --exclude '.git/*' --exclude 'node_modules/*' --exclude 'build/*' --exclude '.github/*'
         env:
           AWS_S3_BUCKET: 'unicons-iconscout-a5996f0'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
