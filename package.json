@@ -35,17 +35,13 @@
     "url": "https://github.com/Iconscout/unicons/issues"
   },
   "homepage": "https://iconscout.com/unicons",
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
-    "babel-loader": "^9.2.1",
-    "regenerator-runtime": "^0.13.3",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
     "async": "^2.6.1",
     "axios": "^1.7.7",
+    "babel-loader": "^9.2.1",
     "cheerio": "^1.0.0",
     "fontello-cli": "^0.6.2",
     "fs-plus": "^3.1.1",
@@ -53,11 +49,14 @@
     "insertion-query": "^1.1.0",
     "lodash": "^4.17.21",
     "parse-svg-path": "^0.1.2",
+    "regenerator-runtime": "^0.13.3",
     "scale-svg-path": "^0.0.1",
     "serialize-svg-path": "^0.1.0",
     "svgo": "1.1.1",
     "svgstore": "^3.0.0-2",
     "ttf2woff2": "^5.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }
